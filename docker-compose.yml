@@ -34,7 +34,7 @@ services:
       context: ./gpt-translator
       dockerfile: ./docker/Dockerfile
     env_file:
-      - .env
+      - gpt-translator/.env
     ports:
       - "8000:8000"
     networks:

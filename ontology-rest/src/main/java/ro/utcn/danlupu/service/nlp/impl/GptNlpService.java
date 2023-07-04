@@ -3,20 +3,26 @@ package ro.utcn.danlupu.service.nlp.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ro.utcn.danlupu.model.TextInterpreterRequest;
 import ro.utcn.danlupu.model.TextInterpreterResponse;
 import ro.utcn.danlupu.service.nlp.NlpService;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.URI;
+import java.io.InputStreamReader;
+import java.net.*;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 
 @Service("GPT")
+@Slf4j
 public class GptNlpService implements NlpService {
 
     @Value("${gpt-translator.translator.url}")
@@ -28,18 +34,42 @@ public class GptNlpService implements NlpService {
     @Override
     public TextInterpreterResponse interpretText(TextInterpreterRequest textInterpreterRequest) {
         try {
-            String body = "{\"text\":\"" + textInterpreterRequest.text() + "\"}";
-            HttpRequest nlpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create(gptTranslatorUrl))
-                    .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(body))
-                    .build();
-            HttpResponse<String> nlpResponse = httpClient.send(nlpRequest, HttpResponse.BodyHandlers.ofString());
-            String kifFormula = extractQueryFromResponse(nlpResponse.body());
+            log.info("Interpret text: {}", textInterpreterRequest.text());
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("text", textInterpreterRequest.text());
+            log.info("Call gpt-translator. Body : {}", jsonObject.toJSONString());
+            String kifFormula = sendRequest(jsonObject.toJSONString());
+            log.info("Kif formula: {}", kifFormula);
             return new TextInterpreterResponse(kifFormula);
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    private String sendRequest(String body) throws IOException {
+        URL url = new URL(gptTranslatorUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setDoOutput(true);
+        try (DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream())) {
+            outputStream.writeBytes(body);
+            outputStream.flush();
+        }
+        int responseCode = connection.getResponseCode();
+        log.info("Response Code: " + responseCode);
+        StringBuilder response = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+            log.info("Response Body: " + response);
+        }
+        connection.disconnect();
+        return extractQueryFromResponse(response.toString());
+
     }
 
     private String extractQueryFromResponse(String nlpResponse) {

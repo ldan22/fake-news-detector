@@ -20,8 +20,8 @@ public class NlpServiceFactoryImpl implements NlpServiceFactory {
     @Override
     public NlpService getNlpProcessor(String type) {
         return switch (type.toUpperCase()) {
-            case "GPT" -> sigmaNlpService;
-            case "SIGMANLP" -> gptNlpService;
+            case "GPT" -> gptNlpService;
+            case "SIGMANLP" -> sigmaNlpService;
             default -> throw new IllegalArgumentException();
         };
     }

@@ -9,7 +9,10 @@ openai.api_key = OPENAI_KEY
 
 def convert_text_to_kif(text: str):
     formal_text = convert(FORMAL_MODEL_TYPE, text)
-    return convert(KIF_MODEL_TYPE, formal_text)
+    print("Formal text: " + formal_text)
+    kif_formula = convert(KIF_MODEL_TYPE, formal_text)
+    print("Kif formula: " + kif_formula)
+    return kif_formula
 
 
 def convert(action_type, prompt):
@@ -39,14 +42,14 @@ class GptTranslator:
     def get_completion(self, prompt):
         normalized_prompt = prompt + self.prompt_suffix
         completion = self._create_completion(normalized_prompt)
-        logger.info("Completion response for text: {} is: {}", normalized_prompt, completion)
         return completion['choices'][0]['text']
 
     def _create_completion(self, prompt: str):
+        print("Stop string: " + self.delimiter)
         return openai.Completion.create(
             model=self.model,
             prompt=prompt,
-            max_tokens=10,
+            max_tokens=96,
             temperature=0,
             stop=[self.delimiter]
         )

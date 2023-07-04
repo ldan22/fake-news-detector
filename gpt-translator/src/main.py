@@ -18,7 +18,7 @@ class TranslatorResponse(BaseModel):
 
 @app.post("/translator")
 async def translate_text(translator_request: TranslatorRequest) -> TranslatorResponse:
-    logger.info("Received request for translating text: {}".format(translator_request.text))
+    print("Received request for translating text: {}".format(translator_request.text))
     kif_formula = convert_text_to_kif(translator_request.text)
     return TranslatorResponse(kif_formula=kif_formula)
 
