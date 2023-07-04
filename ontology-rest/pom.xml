@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.5</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>ro.utcn.danlupu</groupId>
+    <artifactId>ontology-rest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <springboot.version>3.0.5</springboot.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>sigmakee-libs</id>
+            <url>file:///${project.basedir}/lib</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.articulate</groupId>
+            <artifactId>sigmakee</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/sigmakee.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.articulate</groupId>
+            <artifactId>sigma-utils</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/sigmaUtils.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.articulate</groupId>
+            <artifactId>tptpt</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/tptp.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.articulate</groupId>
+            <artifactId>sigmanlp</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/sigmanlp.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>edu.stanford</groupId>
+            <artifactId>corenlp</artifactId>
+            <version>4.5.4</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/stanford-corenlp-4.5.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>edu.stanford</groupId>
+            <artifactId>corenlp-models</artifactId>
+            <version>4.5.4</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/stanford-corenlp-4.5.4-models.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.igormaznitsa</groupId>
+            <artifactId>prologparser</artifactId>
+            <version>2.0.2</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/java-prolog-parser-2.0.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ruedigermoeller</groupId>
+            <artifactId>fst</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.ejml</groupId>
+            <artifactId>ejml-core</artifactId>
+            <version>0.39</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/ejml-core-0.39.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.ejml</groupId>
+            <artifactId>ejml-ddense</artifactId>
+            <version>0.39</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/ejml-ddense-0.39.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.ejml</groupId>
+            <artifactId>ejml-simple</artifactId>
+            <version>0.39</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/ejml-simple-0.39.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.12.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/de.jollyday/jollyday -->
+        <dependency>
+            <groupId>de.jollyday</groupId>
+            <artifactId>jollyday</artifactId>
+            <version>0.5.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>2.3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.25.0-GA</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.antlr/antlr4 -->
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4</artifactId>
+            <version>4.9.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.oreilly</groupId>
+            <artifactId>cos-multipart</artifactId>
+            <version>1.4.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/cos-multipart.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>ontology-rest</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

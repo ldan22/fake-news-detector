@@ -1,0 +1,16 @@
+GET http://localhost:8000/fine_tuned_models/ft-QeWASBRovqLjlE62WAJ3w0E0
+Accept: application/json
+
+###
+GET http://localhost:8000/fine_tuned_models
+Accept: application/json
+
+###
+POST http://localhost:8000/translator
+Content-Type: application/json
+
+{
+  "text": "Fats are nutrients."
+}
+
+###

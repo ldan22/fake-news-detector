@@ -1,0 +1,55 @@
+---
+
+version: '3.8'
+
+services:
+  ontology-rest:
+    container_name: ontology-rest
+    build:
+      context: ./ontology-rest
+      dockerfile: ./docker/api.dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+    volumes:
+      - ./ontology-rest/.sigmakee:/sigma/.sigmakee
+
+  fake-news-detector-api:
+    container_name: fake-news-detector-api
+    build:
+      context: ./fake-news-detector-api
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "10000:10000"
+    networks:
+      - backend
+    depends_on:
+      - ontology-rest
+      - gpt-translator
+
+  gpt-translator:
+    container_name: gpt-translator
+    build:
+      context: ./gpt-translator
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - backend
+
+
+#  my-sigmakee:
+#    container_name: my-sigmakee
+#    build:
+#      context: ./ontology-rest
+#      dockerfile: ./docker/sigmakee.dockerfile
+#    ports:
+#      - "8081:8080"
+#    networks:
+#      - backend
+#    volumes:
+#      - ./ontology-rest/.sigmakee:/sigma/.sigmakee
+
+networks:
+  backend:

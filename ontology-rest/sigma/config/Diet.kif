@@ -1,0 +1,154 @@
+;; Author Dan Lupu
+
+;; ----------------------------------------------------------------------------
+;; 
+;; ----------------------------------------------------------------------------
+
+
+;; ----------------------------------------------------------------------------
+;; Subclasses of Diet
+;; ----------------------------------------------------------------------------
+
+(subclass OmnivorousDiet Diet)
+(documentation OmnivorousDiet EnglishLanguage "&%OmnivorousDiet refers to a dietary pattern that includes both animal and plant-based foods.")
+(termFormat EnglishLanguage OmnivorousDiet "omnivorous diet")
+
+(subclass CarnivorousDiet Diet)
+(documentation CarnivorousDiet EnglishLanguage "&%CarnivorousDiet refers to a dietary pattern primarily focused on consuming meat and animal products.")
+(termFormat EnglishLanguage CarnivorousDiet "carnivorous diet")
+
+(subclass PescetarianDiet Diet)
+(documentation PescetarianDiet EnglishLanguage "&%PescetarianDiet refers to a dietary pattern that includes plant-based foods along with fish and seafood, while excluding meat and poultry.")
+(termFormat EnglishLanguage PescetarianDiet "pescetarian diet")
+
+(subclass PollotarianDiet Diet)
+(documentation PollotarianDiet EnglishLanguage "&%PollotarianDiet refers to a dietary pattern that includes plant-based foods along with poultry, while excluding red meat, fish, and seafood.")
+(termFormat EnglishLanguage PollotarianDiet "pollotarian diet")
+
+(subclass SemiVegetarianDiet Diet)
+(documentation SemiVegetarianDiet EnglishLanguage "&%SemiVegetarianDiet refers to a flexible dietary pattern that includes plant-based foods along with limited amounts of meat, poultry, and seafood.")
+(termFormat EnglishLanguage SemiVegetarianDiet "semi-vegetarian diet")
+
+(subclass VegetarianDiet Diet)
+(documentation VegetarianDiet EnglishLanguage "&%VegetarianDiet refers to a dietary pattern that excludes meat, poultry, fish, and seafood, primarily relying on plant-based foods.")
+(termFormat EnglishLanguage VegetarianDiet "vegetarian diet")
+
+(subclass VeganDiet Diet)
+(documentation VeganDiet EnglishLanguage "&%VeganDiet refers to a dietary pattern that excludes all animal products, relying solely on plant-based foods.")
+(termFormat EnglishLanguage VeganDiet "vegan diet")
+
+(subclass FruitarianDiet Diet)
+(documentation FruitarianDiet EnglishLanguage "&%FruitarianDiet refers to a dietary pattern that primarily consists of fruits, nuts, seeds, and other plant-based foods, with a focus on minimizing harm to the parent plant.")
+(termFormat EnglishLanguage FruitarianDiet "fruitarian diet")
+
+(subclass PaleoDiet Diet)
+(documentation PaleoDiet EnglishLanguage "&%PaleoDiet refers to a dietary pattern inspired by the presumed diet of early humans during the Paleolithic era, emphasizing lean meats, fruits, vegetables, nuts, and seeds, while excluding grains, legumes, dairy products, refined sugars, and processed foods.")
+(termFormat EnglishLanguage PaleoDiet "paleo diet")
+
+(subclass KetogenicDiet Diet)
+(documentation KetogenicDiet EnglishLanguage "&%KetogenicDiet refers to a low-carbohydrate, high-fat dietary pattern that induces a metabolic state called ketosis, involving high-fat, moderate-protein, and very low-carbohydrate food consumption.")
+(termFormat EnglishLanguage KetogenicDiet "ketogenic diet")
+
+(subclass JewishDiet Diet)
+(documentation JewishDiet EnglishLanguage "&%JewishDiet refers to the dietary laws and customs observed by individuals of the Jewish faith, following the kosher guidelines for permissible and prepared foods.")
+(termFormat EnglishLanguage JewishDiet "Jewish diet")
+
+(subclass IslamicDiet Diet)
+(documentation IslamicDiet EnglishLanguage "&%IslamicDiet refers to the dietary laws and practices observed by individuals of the Islamic faith, following the halal guidelines for permissible and prepared foods.")
+(termFormat EnglishLanguage IslamicDiet "Islamic diet")
+
+(subclass HinduDiet Diet)
+(documentation HinduDiet EnglishLanguage "&%HinduDiet refers to the dietary practices followed by individuals of the Hindu faith, which may vary but often emphasize vegetarianism, with some including dairy products and limited amounts of poultry and seafood.")
+(termFormat EnglishLanguage HinduDiet "Hindu diet")
+
+(subclass JainDiet Diet)
+(documentation JainDiet EnglishLanguage "&%JainDiet refers to the dietary practices followed by individuals of the Jain faith, strictly adhering to vegetarianism and minimizing harm to living beings.")
+(termFormat EnglishLanguage JainDiet "Jain diet")
+
+(subclass DetoxDiet Diet)
+(documentation DetoxDiet EnglishLanguage "&%DetoxDiet refers to a mythical diet for cleaning blood of toxins.")
+(termFormat EnglishLanguage DetoxDiet "detox diet")
+
+;; ----------------------------------------------------------------------------
+;; Organic food
+;; ----------------------------------------------------------------------------
+
+(subclass OrganicFood Food)
+(documentation OrganicFood EnglishLanguage "&%OrganicFood refers to agricultural products that are grown and processed using organic farming practices. These practices prioritize the use of natural and sustainable methods while avoiding synthetic chemicals, pesticides, genetically modified organisms (GMOs), and irradiation.")
+(termFormat EnglishLanguage OrganicFood "organic food")
+
+;; If a food has organic attribute then it is an instance of OrganicFood
+
+(=>
+	(and 
+		(instance ?X Food)
+		(attribute ?X Organic))
+	(instance ?X OrganicFood))
+
+(subclass Pesticide BiologicallyActiveSubstance)
+
+(attribute PesticideFree RelationalAttribute)
+(termFormat EnglishLanguage PesticideFree "pesticide free")
+
+
+(=>
+	(and 
+		(instance ?X Food)
+		(attribute ?X PesticideFree))
+	(not 
+		(exists (?P) 
+			(and (instance ?P Pesticide) 
+				(part ?P ?X)))))
+
+(=> (instance ?X OrganicFood)
+	(modalAttribute PesticideFree Likely))
+
+
+; ;; Organic food likely has less pesticides than normal food
+; (=>
+;     (and
+;         (instance ?F1 OrganicFood)
+;         (instance ?P1 Pesticide)
+;         (part ?P1 ?F1)
+;         (measure ?P1 (MeasureFn ?C1 Gram))
+
+;         (instance ?F2 Food)
+;         (not (attribute ?F2 Organic))
+;         (instance ?P2 Pesticide)
+;         (part ?P2 ?F2)
+;         (measure ?P2 (MeasureFn ?C2 Gram)))
+
+;     (modalAttribute
+;         (greaterThan ?C2 ?C1) Likely))
+
+
+; ;; Not all organic food are pesticide free
+; (exists (?X ?Y) (and (instance ?X OrganicFood) (instance ?Y Pesticide) (part ?Y ?X)))
+
+
+
+;; ----------------------------------------------------------------------------
+;; Attributes
+;; ----------------------------------------------------------------------------
+
+(subclass DetoxDiet AutonomousAgent)
+(=> 
+	(instance ?D DetoxDiet)
+	(exists (?C) 
+		(and 
+			(instance ?C Cleaning) 
+			(agent ?C ?D) 
+			(patient ?C Blood))))
+
+
+
+(subclass Vegetable FruitOrVegetable)
+(documentation Vegetable EnglishLanguage "Vegetable is a subclass of FruitOrVegetable.")
+
+(=> 
+	(instance ?F Fruit)
+	(attribute ?F Healthy))
+
+(=> 
+	(instance ?F Vegetable)
+	(attribute ?F Healthy))
