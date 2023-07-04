@@ -16,8 +16,8 @@ def convert_text_to_kif(text: str):
 
 
 def convert(action_type, prompt):
-    formal_model = get_translator(action_type)
-    return formal_model.get_completion(prompt)
+    translator = get_translator(action_type)
+    return translator.get_completion(prompt)
 
 
 def get_translator(model_type: str):
@@ -33,6 +33,7 @@ class GptTranslator:
 
     @staticmethod
     def _get_model(fine_tune_id):
+        print(fine_tune_id)
         fine_tune = openai.FineTune.retrieve(id=fine_tune_id)
         if fine_tune is None or fine_tune.fine_tuned_model is None:
             logger.warn("No model found with id: {}".format(fine_tune_id))
@@ -49,7 +50,7 @@ class GptTranslator:
         return openai.Completion.create(
             model=self.model,
             prompt=prompt,
-            max_tokens=96,
+            max_tokens=64,
             temperature=0,
             stop=[self.delimiter]
         )

@@ -1,7 +1,6 @@
 import openai
 from fastapi import FastAPI
 from pydantic import BaseModel
-from fastapi.logger import logger
 
 from src.gpt_translator import convert_text_to_kif
 

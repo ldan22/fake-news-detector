@@ -1,5 +1,6 @@
 package ro.utcn.danlupu.service.kb.query.impl;
 
+import com.articulate.sigma.nlg.LanguageFormatter;
 import com.articulate.sigma.tp.Vampire;
 import com.articulate.sigma.trans.TPTP3ProofProcessor;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import ro.utcn.danlupu.service.kb.KBFactory;
 import ro.utcn.danlupu.service.kb.query.KBQueryService;
 import tptp_parser.TPTPFormula;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 
@@ -45,7 +47,20 @@ public class VampireKBQueryService implements KBQueryService {
         log.info("Contains false: {}", tpp.containsFalse);
         log.info("No conjecture: {}", tpp.noConjecture);
 
-        tpp.proof.forEach(tptpFormula -> log.info(tptpFormula.sumo));
+        List<String> sumoProof = tpp.proof.stream()
+                .map(tptpFormula -> tptpFormula.sumo)
+                .toList();
+
+        String language = "EnglishLanguage";
+        sumoProof.stream().forEach(sumoStmt -> {
+            LanguageFormatter languageFormatter = new LanguageFormatter(
+                    sumoStmt,
+                    kbFactory.getKB().getFormatMap(language),
+                    kbFactory.getKB().getTermFormatMap(language),
+                    kbFactory.getKB(),
+                    language);
+            log.info(languageFormatter.htmlParaphrase(""));
+        });
 
         return KbQueryResponse.builder()
                 .bindings(tpp.bindings)
