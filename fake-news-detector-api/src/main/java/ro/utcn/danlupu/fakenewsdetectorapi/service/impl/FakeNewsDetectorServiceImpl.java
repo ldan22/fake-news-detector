@@ -31,7 +31,7 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
 
     @Override
     public FakeNewsDetectorResponse check(FakeNewsDetectorRequest request) {
-        String query = convertText(request.text());
+        String query = convertText(request);
         if (query == null) {
             return null;
         }
@@ -62,12 +62,12 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
         return httpClient.sendAsync(queryRequest, HttpResponse.BodyHandlers.ofString());
     }
 
-    private String convertText(String text) {
+    private String convertText(FakeNewsDetectorRequest request) {
         try {
             HttpRequest nlpRequest = HttpRequest.newBuilder()
                     .uri(URI.create(NLP_INTERPRETER_ENDPOINT))
                     .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString("{\"text\":\"" + text + "\"}"))
+                    .POST(HttpRequest.BodyPublishers.ofString("{\"text\":\"" + request.text() + "\", \"nlpProcessor\":\"" + request.nlpProcessor() + "\"}"))
                     .build();
             HttpResponse<String> nlpResponse = httpClient.send(nlpRequest, HttpResponse.BodyHandlers.ofString());
             log.info("NLP response: {}", nlpResponse);

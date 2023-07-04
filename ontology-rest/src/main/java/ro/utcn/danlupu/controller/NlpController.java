@@ -21,10 +21,9 @@ public class NlpController {
     private final NlpServiceFactory nlpServiceFactory;
 
     @PostMapping("/interpret")
-    public ResponseEntity<TextInterpreterResponse> interpretText(@RequestParam(name = "nlpProcessor", defaultValue = "gpt") String nlpProcessor,
-                                                                 @RequestBody TextInterpreterRequest textInterpreterRequest) {
+    public ResponseEntity<TextInterpreterResponse> interpretText(@RequestBody TextInterpreterRequest textInterpreterRequest) {
         log.info("Request received: Interpret text to SUMO query.");
-        TextInterpreterResponse response = nlpServiceFactory.getNlpProcessor(nlpProcessor)
+        TextInterpreterResponse response = nlpServiceFactory.getNlpProcessor(textInterpreterRequest.nlpProcessor())
                 .interpretText(textInterpreterRequest);
         return ResponseEntity.ok(response);
     }
