@@ -1,6 +1,6 @@
-package ro.utcn.danlupu.service.query.impl;
+package ro.utcn.danlupu.service.kb.query.impl;
 
-import com.articulate.sigma.tp.Vampire;
+import com.articulate.sigma.tp.EProver;
 import com.articulate.sigma.trans.TPTP3ProofProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,44 +8,37 @@ import org.springframework.stereotype.Service;
 import ro.utcn.danlupu.exception.KbQueryInvalidSyntaxException;
 import ro.utcn.danlupu.exception.KbQueryVampireInitException;
 import ro.utcn.danlupu.model.KbQueryResponse;
-import ro.utcn.danlupu.service.KBFactory;
-import ro.utcn.danlupu.service.query.KBQueryService;
+import ro.utcn.danlupu.service.kb.KBFactory;
+import ro.utcn.danlupu.service.kb.query.KBQueryService;
 import tptp_parser.TPTPFormula;
 
 import java.util.stream.Collectors;
 
 
-@Service("VAMPIRE")
+@Service("EPROVER")
 @Slf4j
 @RequiredArgsConstructor
-public class VampireKBQueryService implements KBQueryService {
-
+public class EProverKBQueryService implements KBQueryService {
     private final KBFactory kbFactory;
-    private static final int VAMPIRE_TIMEOUT = 600;
 
+    private static final int EPROVER_TIMEOUT = 600;
 
     @Override
     public KbQueryResponse performQuery(String query) {
-        Vampire vampire = kbFactory.getKB().askVampire(query, VAMPIRE_TIMEOUT, 10);
+        EProver eProver = kbFactory.getKB().askEProver(query, EPROVER_TIMEOUT, 1);
 
-        if (vampire == null || vampire.output == null) {
-            log.info("Vampire: {}", vampire);
+        if (eProver == null || eProver.output == null) {
             throw new KbQueryVampireInitException();
         }
 
-        if (vampire.output.contains("Syntax error detected")) {
+        if (eProver.output.contains("Syntax error detected")) {
             throw new KbQueryInvalidSyntaxException(query);
         }
 
-        TPTP3ProofProcessor tpp = parseVampireProofOutput(vampire, query);
+        TPTP3ProofProcessor tpp = parseEPRoverOutput(eProver, query);
 
-        log.info("Status: {}", tpp.status);
+        log.info("Proof: {}", tpp.proof);
         log.info("Bindings: {}", tpp.bindings);
-        log.info("Inconsistency: {}", tpp.inconsistency);
-        log.info("Contains false: {}", tpp.containsFalse);
-        log.info("No conjecture: {}", tpp.noConjecture);
-
-        tpp.proof.forEach(tptpFormula -> log.info(tptpFormula.sumo));
 
         return KbQueryResponse.builder()
                 .bindings(tpp.bindings)
@@ -59,13 +52,13 @@ public class VampireKBQueryService implements KBQueryService {
 
     @Override
     public KBQueryService load() {
-        kbFactory.getKB().loadVampire();
+        kbFactory.getKB().loadEProver();
         return this;
     }
 
-    private TPTP3ProofProcessor parseVampireProofOutput(Vampire vampire, String query) {
+    private TPTP3ProofProcessor parseEPRoverOutput(EProver eProver, String query) {
         TPTP3ProofProcessor tpp = new TPTP3ProofProcessor();
-        tpp.parseProofOutput(vampire.output, query, kbFactory.getKB(), vampire.qlist);
+        tpp.parseProofOutput(eProver.output, query, kbFactory.getKB(), eProver.qlist);
         return tpp;
     }
 }

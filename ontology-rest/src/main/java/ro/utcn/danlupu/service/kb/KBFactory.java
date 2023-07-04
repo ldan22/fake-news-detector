@@ -1,4 +1,4 @@
-package ro.utcn.danlupu.service;
+package ro.utcn.danlupu.service.kb;
 
 import com.articulate.sigma.KB;
 

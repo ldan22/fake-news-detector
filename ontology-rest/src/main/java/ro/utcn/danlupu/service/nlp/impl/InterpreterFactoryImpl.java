@@ -1,11 +1,12 @@
-package ro.utcn.danlupu.service.impl;
+package ro.utcn.danlupu.service.nlp.impl;
 
 import com.articulate.nlp.RelExtract;
 import com.articulate.nlp.corpora.TimeBank;
 import com.articulate.nlp.semRewrite.Interpreter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ro.utcn.danlupu.service.InterpreterFactory;
+import ro.utcn.danlupu.service.nlp.InterpreterFactory;
+import ro.utcn.danlupu.service.kb.impl.KBFactoryImpl;
 
 import java.io.IOException;
 

@@ -7,7 +7,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ro.utcn.danlupu.model.KbQueryRequest;
 import ro.utcn.danlupu.model.KbQueryResponse;
-import ro.utcn.danlupu.service.KBService;
+import ro.utcn.danlupu.service.kb.KBService;
 
 
 @CrossOrigin
@@ -26,6 +26,13 @@ public class KBController {
                                                         @RequestBody KbQueryRequest kbQueryRequest) {
         log.info("Request received: Perform query: {}", kbQueryRequest.query());
         KbQueryResponse response = kbService.performQuery(engine, kbQueryRequest.query());
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/term")
+    public ResponseEntity<String> getTermDocumentation(@RequestParam String term) {
+        log.info("Request received: Get term information: {}", term);
+        String response = kbService.getTermInformation(term);
         return ResponseEntity.ok(response);
     }
 }

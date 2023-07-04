@@ -1,4 +1,4 @@
-package ro.utcn.danlupu.service.query;
+package ro.utcn.danlupu.service.kb.query;
 
 import ro.utcn.danlupu.model.KbQueryResponse;
 

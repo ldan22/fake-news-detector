@@ -1,10 +1,10 @@
-package ro.utcn.danlupu.service.query.impl;
+package ro.utcn.danlupu.service.kb.query.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.StopWatch;
 import ro.utcn.danlupu.model.KbQueryResponse;
-import ro.utcn.danlupu.service.query.KBQueryService;
+import ro.utcn.danlupu.service.kb.query.KBQueryService;
 
 
 @RequiredArgsConstructor

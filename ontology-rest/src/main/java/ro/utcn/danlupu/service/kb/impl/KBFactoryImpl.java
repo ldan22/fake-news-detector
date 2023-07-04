@@ -1,10 +1,10 @@
-package ro.utcn.danlupu.service.impl;
+package ro.utcn.danlupu.service.kb.impl;
 
 import com.articulate.sigma.KB;
 import com.articulate.sigma.KBmanager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ro.utcn.danlupu.service.KBFactory;
+import ro.utcn.danlupu.service.kb.KBFactory;
 
 
 @Component

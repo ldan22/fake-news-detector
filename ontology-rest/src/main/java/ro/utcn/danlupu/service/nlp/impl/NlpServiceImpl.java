@@ -1,4 +1,4 @@
-package ro.utcn.danlupu.service.impl;
+package ro.utcn.danlupu.service.nlp.impl;
 
 import com.articulate.sigma.Formula;
 import lombok.RequiredArgsConstructor;
@@ -6,15 +6,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ro.utcn.danlupu.model.TextInterpreterRequest;
 import ro.utcn.danlupu.model.TextInterpreterResponse;
-import ro.utcn.danlupu.service.InterpreterFactory;
-import ro.utcn.danlupu.service.NlpService;
+import ro.utcn.danlupu.service.nlp.InterpreterFactory;
+import ro.utcn.danlupu.service.nlp.NlpService;
 import ro.utcn.danlupu.service.ManualMappingsExtractor;
 
 import java.io.IOException;
 import java.util.List;
 
 
-@Service
+@Service("SIGMANLP")
 @RequiredArgsConstructor
 @Slf4j
 public class NlpServiceImpl implements NlpService {

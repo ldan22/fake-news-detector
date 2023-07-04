@@ -1,4 +1,4 @@
-package ro.utcn.danlupu.service;
+package ro.utcn.danlupu.service.nlp;
 
 import com.articulate.nlp.semRewrite.Interpreter;
 

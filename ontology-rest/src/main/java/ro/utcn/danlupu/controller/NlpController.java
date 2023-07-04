@@ -7,7 +7,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ro.utcn.danlupu.model.TextInterpreterRequest;
 import ro.utcn.danlupu.model.TextInterpreterResponse;
-import ro.utcn.danlupu.service.NlpService;
+import ro.utcn.danlupu.service.nlp.NlpServiceFactory;
+
 
 @CrossOrigin
 @RestController
@@ -17,12 +18,14 @@ import ro.utcn.danlupu.service.NlpService;
 @AllArgsConstructor
 public class NlpController {
 
-    private final NlpService nlpService;
+    private final NlpServiceFactory nlpServiceFactory;
 
     @PostMapping("/interpret")
-    public ResponseEntity<TextInterpreterResponse> interpretText(@RequestBody TextInterpreterRequest textInterpreterRequest) {
+    public ResponseEntity<TextInterpreterResponse> interpretText(@RequestParam(name = "nlpProcessor", defaultValue = "gpt") String nlpProcessor,
+                                                                 @RequestBody TextInterpreterRequest textInterpreterRequest) {
         log.info("Request received: Interpret text to SUMO query.");
-        TextInterpreterResponse response = nlpService.interpretText(textInterpreterRequest);
+        TextInterpreterResponse response = nlpServiceFactory.getNlpProcessor(nlpProcessor)
+                .interpretText(textInterpreterRequest);
         return ResponseEntity.ok(response);
     }
 }

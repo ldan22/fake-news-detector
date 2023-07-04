@@ -1,9 +1,9 @@
-package ro.utcn.danlupu.service.query.impl;
+package ro.utcn.danlupu.service.kb.query.impl;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import ro.utcn.danlupu.service.query.KBQueryService;
-import ro.utcn.danlupu.service.query.KBQueryServiceFactory;
+import ro.utcn.danlupu.service.kb.query.KBQueryService;
+import ro.utcn.danlupu.service.kb.query.KBQueryServiceFactory;
 
 
 @Component
