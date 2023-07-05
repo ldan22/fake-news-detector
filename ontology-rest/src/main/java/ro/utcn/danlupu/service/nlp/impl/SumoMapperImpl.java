@@ -7,6 +7,7 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.util.CoreMap;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import ro.utcn.danlupu.service.nlp.MapperPipeline;
 import ro.utcn.danlupu.service.nlp.SumoMapper;
@@ -35,7 +36,9 @@ public class SumoMapperImpl implements SumoMapper {
                 for (CoreLabel token : tokens) {
                     String sumo = getSumoTerm(token);
                     log.info("Orig: {}, Sumo: {}", token.originalText(), sumo);
-                    mappedText = mappedText.replace(token.originalText(), sumo);
+                    if (StringUtils.isNotEmpty(sumo)) {
+                        mappedText = mappedText.replace(token.originalText(), sumo);
+                    }
                 }
             }
             return mappedText;

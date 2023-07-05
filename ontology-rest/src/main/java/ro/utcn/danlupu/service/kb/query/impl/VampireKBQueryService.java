@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class VampireKBQueryService implements KBQueryService {
 
     private final KBFactory kbFactory;
-    private static final int VAMPIRE_TIMEOUT = 25;
+    private static final int VAMPIRE_TIMEOUT = 600;
 
 
     @Override

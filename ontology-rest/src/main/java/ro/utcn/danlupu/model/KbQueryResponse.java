@@ -2,6 +2,7 @@ package ro.utcn.danlupu.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -12,5 +13,5 @@ public record KbQueryResponse(
                               boolean containsFalse,
                               String tptpStatus,
                               List<String> bindings,
-                              @JsonIgnore List<String> proof) {
+                              @ToString.Exclude List<String> proof) {
 }
