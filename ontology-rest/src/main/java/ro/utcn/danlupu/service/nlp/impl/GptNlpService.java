@@ -35,8 +35,10 @@ public class GptNlpService implements NlpService {
     public TextInterpreterResponse interpretText(TextInterpreterRequest textInterpreterRequest) {
         try {
             log.info("Interpret text: {}", textInterpreterRequest.text());
+            String text = mapToSumo(textInterpreterRequest.text());
+            log.info("Translate mapped text: {}", text);
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("text", textInterpreterRequest.text());
+            jsonObject.put("text", text);
             log.info("Call gpt-translator. Body : {}", jsonObject.toJSONString());
             String kifFormula = sendRequest(jsonObject.toJSONString());
             log.info("Kif formula: {}", kifFormula);
@@ -82,12 +84,14 @@ public class GptNlpService implements NlpService {
         }
     }
 
-    private void mapToSumo(String text) {
+    private String mapToSumo(String text) {
         try {
             String mappedText = sumoMapper.mapToSumoTerms(text);
             log.info("Mapped text: {}", mappedText);
+            return mappedText;
         } catch (Exception e) {
             log.warn(e.getMessage());
+            return text;
         }
     }
 }

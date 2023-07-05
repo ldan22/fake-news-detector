@@ -17,7 +17,6 @@ public class InterpreterFactoryImpl implements InterpreterFactory {
 
     private volatile Interpreter interpreter;
 
-
     @Override
     public Interpreter getInterpreter() throws IOException {
         if (interpreter == null) {

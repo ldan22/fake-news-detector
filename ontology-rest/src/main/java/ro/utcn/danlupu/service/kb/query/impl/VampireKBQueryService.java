@@ -14,6 +14,7 @@ import ro.utcn.danlupu.service.kb.query.KBQueryService;
 import tptp_parser.TPTPFormula;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -23,7 +24,7 @@ import java.util.stream.Collectors;
 public class VampireKBQueryService implements KBQueryService {
 
     private final KBFactory kbFactory;
-    private static final int VAMPIRE_TIMEOUT = 600;
+    private static final int VAMPIRE_TIMEOUT = 25;
 
 
     @Override
@@ -49,24 +50,23 @@ public class VampireKBQueryService implements KBQueryService {
 
 
         List<String> sumoProof = tpp.proof.stream()
-                .peek(tptpFormula -> log.info(tptpFormula.type))
-                .peek(tptpFormula -> log.info(tptpFormula.role))
-                .peek(tptpFormula -> log.info(tptpFormula.infRule))
+                .filter(tptpFormula -> Objects.equals(tptpFormula.role, "axiom"))
                 .peek(tptpFormula -> log.info(tptpFormula.formula))
                 .map(tptpFormula -> tptpFormula.sumo)
+                .peek(log::info)
                 .toList();
 
-        String language = "EnglishLanguage";
-        sumoProof.stream().forEach(sumoStmt -> {
-            LanguageFormatter languageFormatter = new LanguageFormatter(
-                    sumoStmt,
-                    kbFactory.getKB().getFormatMap(language),
-                    kbFactory.getKB().getTermFormatMap(language),
-                    kbFactory.getKB(),
-                    language);
-            log.info(languageFormatter.htmlParaphrase(""));
-            log.info(languageFormatter.paraphraseStatement(sumoStmt, false, 1));
-        });
+//        String language = "EnglishLanguage";
+//        sumoProof.stream().forEach(sumoStmt -> {
+//            LanguageFormatter languageFormatter = new LanguageFormatter(
+//                    sumoStmt,
+//                    kbFactory.getKB().getFormatMap(language),
+//                    kbFactory.getKB().getTermFormatMap(language),
+//                    kbFactory.getKB(),
+//                    language);
+////            log.info(languageFormatter.htmlParaphrase(""));
+//            log.info(languageFormatter.paraphraseStatement(sumoStmt, false, 1));
+//        });
 
         return KbQueryResponse.builder()
                 .bindings(tpp.bindings)
@@ -74,7 +74,7 @@ public class VampireKBQueryService implements KBQueryService {
                 .inconsistency(tpp.inconsistency)
                 .containsFalse(tpp.containsFalse)
                 .noConjecture(tpp.noConjecture)
-                .proof(tpp.proof.stream().map(TPTPFormula::toString).collect(Collectors.toList()))
+                .proof(sumoProof)
                 .build();
     }
 
