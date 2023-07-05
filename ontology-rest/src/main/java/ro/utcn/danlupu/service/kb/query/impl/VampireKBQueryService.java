@@ -47,7 +47,12 @@ public class VampireKBQueryService implements KBQueryService {
         log.info("Contains false: {}", tpp.containsFalse);
         log.info("No conjecture: {}", tpp.noConjecture);
 
+
         List<String> sumoProof = tpp.proof.stream()
+                .peek(tptpFormula -> log.info(tptpFormula.type))
+                .peek(tptpFormula -> log.info(tptpFormula.role))
+                .peek(tptpFormula -> log.info(tptpFormula.infRule))
+                .peek(tptpFormula -> log.info(tptpFormula.formula))
                 .map(tptpFormula -> tptpFormula.sumo)
                 .toList();
 
@@ -60,6 +65,7 @@ public class VampireKBQueryService implements KBQueryService {
                     kbFactory.getKB(),
                     language);
             log.info(languageFormatter.htmlParaphrase(""));
+            log.info(languageFormatter.paraphraseStatement(sumoStmt, false, 1));
         });
 
         return KbQueryResponse.builder()

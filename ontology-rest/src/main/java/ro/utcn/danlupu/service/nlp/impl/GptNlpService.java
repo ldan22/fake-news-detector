@@ -3,6 +3,7 @@ package ro.utcn.danlupu.service.nlp.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,26 +11,25 @@ import org.springframework.stereotype.Service;
 import ro.utcn.danlupu.model.TextInterpreterRequest;
 import ro.utcn.danlupu.model.TextInterpreterResponse;
 import ro.utcn.danlupu.service.nlp.NlpService;
+import ro.utcn.danlupu.service.nlp.SumoMapper;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.*;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 
 @Service("GPT")
 @Slf4j
+@RequiredArgsConstructor
 public class GptNlpService implements NlpService {
 
     @Value("${gpt-translator.translator.url}")
     private String gptTranslatorUrl;
 
-    private final HttpClient httpClient = HttpClient.newHttpClient();
     private final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private final SumoMapper sumoMapper;
 
     @Override
     public TextInterpreterResponse interpretText(TextInterpreterRequest textInterpreterRequest) {
@@ -79,6 +79,15 @@ public class GptNlpService implements NlpService {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    private void mapToSumo(String text) {
+        try {
+            String mappedText = sumoMapper.mapToSumoTerms(text);
+            log.info("Mapped text: {}", mappedText);
+        } catch (Exception e) {
+            log.warn(e.getMessage());
         }
     }
 }
