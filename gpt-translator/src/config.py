@@ -12,5 +12,5 @@ MODEL_FINE_TUNE_ID = {
 
 STOP_STRINGS = {
     FORMAL_MODEL_TYPE: '\n',
-    KIF_MODEL_TYPE: ' ->'
+    KIF_MODEL_TYPE: '\n'
 }

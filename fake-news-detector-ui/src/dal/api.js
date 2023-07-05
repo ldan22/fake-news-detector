@@ -7,8 +7,7 @@ export const client = axios.create({
 })
 
 export const api = {
-    checkTruth: async ({text}) => {
-        const {data} = client.post('detector', {text})
-        return data
+    checkTruth: ({text, nlpProcessor = 'gpt'}) => {
+        return client.post('detector', {text, nlpProcessor})
     }
 }

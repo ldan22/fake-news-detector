@@ -1,41 +1,30 @@
-import {useState} from 'react'
-import './App.css'
-import {api} from "./dal/api.js";
+import {Tabs, Container} from '@mantine/core';
+import FactChecker from "./components/FactChecker.jsx";
+import KBExplorer from "./components/KBExplorer.jsx";
+
 
 function App() {
-    const [text, setText] = useState('');
-    const [result, setResult] = useState('')
 
-    const handleInputChange = (e) => {
-        setText(e.target.value);
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        try {
-            const {data} = await api.checkTruth({text})
-            setResult(data.state)
-            console.log('Response: ', data)
-        } catch (error) {
-            setResult('Server error')
-            console.error('Network error:', error);
-        }
-    };
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={text}
-                    onChange={handleInputChange}
-                    placeholder="Enter your post text"
-                />
-                <button type="submit">Submit</button>
-            </form>
 
-            {result && <div>Response result: {result}</div>}
+            <Container size="800px" px="xs" mt={'100px'}>
+                <Tabs defaultValue="gallery">
+                    <Tabs.List>
+                        <Tabs.Tab value="gallery">Fact checking</Tabs.Tab>
+                        <Tabs.Tab value="messages">Explorer</Tabs.Tab>
+                    </Tabs.List>
+
+                    <Tabs.Panel value="gallery" pt="xs">
+                        <FactChecker/>
+                    </Tabs.Panel>
+
+                    <Tabs.Panel value="messages" pt="xs">
+                        <KBExplorer/>
+                    </Tabs.Panel>
+                </Tabs>
+            </Container>
         </>
     );
 }
