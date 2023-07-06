@@ -10,7 +10,7 @@ POST http://localhost:8000/translator
 Content-Type: application/json
 
 {
-  "text": "Avocado is healthy."
+  "text": "Some fats are healthy."
 }
 
 ###

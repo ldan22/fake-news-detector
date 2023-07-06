@@ -1,11 +1,6 @@
 ;; Author Dan Lupu
 
 ;; ----------------------------------------------------------------------------
-;; 
-;; ----------------------------------------------------------------------------
-
-
-;; ----------------------------------------------------------------------------
 ;; Subclasses of Diet
 ;; ----------------------------------------------------------------------------
 
@@ -79,7 +74,7 @@
 
 ;; If a food has organic attribute then it is an instance of OrganicFood
 
-(=>
+(<=>
 	(and 
 		(instance ?X Food)
 		(attribute ?X Organic))
@@ -105,50 +100,66 @@
 
 
 ; ;; Organic food likely has less pesticides than normal food
-; (=>
-;     (and
-;         (instance ?F1 OrganicFood)
-;         (instance ?P1 Pesticide)
-;         (part ?P1 ?F1)
-;         (measure ?P1 (MeasureFn ?C1 Gram))
+(=>
+    (and
+        (instance ?F1 OrganicFood)
+        (instance ?P1 Pesticide)
+        (part ?P1 ?F1)
+        (measure ?P1 (MeasureFn ?C1 Gram))
 
-;         (instance ?F2 Food)
-;         (not (attribute ?F2 Organic))
-;         (instance ?P2 Pesticide)
-;         (part ?P2 ?F2)
-;         (measure ?P2 (MeasureFn ?C2 Gram)))
+        (instance ?F2 Food)
+        (not (attribute ?F2 Organic))
+        (instance ?P2 Pesticide)
+        (part ?P2 ?F2)
+        (measure ?P2 (MeasureFn ?C2 Gram)))
 
-;     (modalAttribute
-;         (greaterThan ?C2 ?C1) Likely))
-
-
-; ;; Not all organic food are pesticide free
-; (exists (?X ?Y) (and (instance ?X OrganicFood) (instance ?Y Pesticide) (part ?Y ?X)))
+    (modalAttribute
+        (greaterThan ?C2 ?C1) Likely))
 
 
-
-;; ----------------------------------------------------------------------------
-;; Attributes
-;; ----------------------------------------------------------------------------
+; Some detox diets cleanse the body
 
 (subclass DetoxDiet AutonomousAgent)
+
+(exists (?D ?C) 
+	(and 
+		(instance ?D DetoxDiet) 
+		(instance ?C Cleaning) 
+		(agent ?C ?D) 
+		(patient ?C Body)))
+
+; Fruits and vegetables are helthy
+
 (=> 
-	(instance ?D DetoxDiet)
+	(instance ?X FruitOrVegetable)
+	(attribute ?X Healthy))
+
+; Added sugar causes obesity
+
+(subclass AddedSugar Sugar)
+(documentation AddedSugar EnglishLanguage "&%AddedSugar is a subclass of &%Sugar. They are sugar carbohydrates (caloric sweeteners) added to food and beverages at some point before their consumption.")
+(termFormat AddedSugar "added sugar")
+
+
+(subclass Obesity DiseaseOrSyndrome)
+(documentation Obesity EnglishLanguage "&%Obesity is a medical condition, sometimes considered a disease, in which excess body fat has accumulated to such an extent that it negatively affects health.")
+(termFormat AddedSugar "obesity")
+
+(=> 
+	(instance ?S Sugar) 
 	(exists (?C) 
 		(and 
-			(instance ?C Cleaning) 
-			(agent ?C ?D) 
-			(patient ?C Blood))))
+			(instance ?C Causing) 
+			(agent ?C ?S) 
+			(patient ?C Obesity))))
 
+; Some lipids are healthy
 
+(subclass Lipid Nutrient)
+(documentation Lipid EnglishLanguage "&%Lipid are a broad group of organic compounds which include fats, waxes, sterols, fat-soluble vitamins (such as vitamins A, D, E and K), monoglycerides, diglycerides, phospholipids, and others.")
+(termFormat Lipid "lipid")
 
-(subclass Vegetable FruitOrVegetable)
-(documentation Vegetable EnglishLanguage "Vegetable is a subclass of FruitOrVegetable.")
-
-(=> 
-	(instance ?F Fruit)
-	(attribute ?F Healthy))
-
-(=> 
-	(instance ?F Vegetable)
-	(attribute ?F Healthy))
+(exists (?X)
+	(and
+		(instance ?X Lipid)
+		(attribute ?X Healthy)))

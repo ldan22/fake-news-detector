@@ -67,6 +67,14 @@ const CheckerResult = ({data}) => {
                     {data?.state}
                 </Box>
             </Flex>
+            <Flex my={'20px'}>
+                <Title order={5}>
+                    Elapsed (s):
+                </Title>
+                <Box ml={'5px'}>
+                    {data?.elapsedSeconds}
+                </Box>
+            </Flex>
             <Box>
                 <Title order={5}>
                     Axioms used for proof:
