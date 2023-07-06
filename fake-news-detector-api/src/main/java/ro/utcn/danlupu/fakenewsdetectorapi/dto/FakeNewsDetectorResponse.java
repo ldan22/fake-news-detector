@@ -7,5 +7,9 @@ import ro.utcn.danlupu.fakenewsdetectorapi.model.TextState;
 import java.util.List;
 
 @Builder
-public record FakeNewsDetectorResponse(TextState state, @ToString.Exclude List<String> proof) {
+public record FakeNewsDetectorResponse(
+        TextState state,
+        @ToString.Exclude List<String> proof,
+        double elapsedSeconds
+) {
 }

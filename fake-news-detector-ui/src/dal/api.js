@@ -9,5 +9,11 @@ export const client = axios.create({
 export const api = {
     checkTruth: ({text, nlpProcessor = 'gpt'}) => {
         return client.post('detector', {text, nlpProcessor})
+    },
+
+    getTermInfo: async ({term}) => {
+        const {data} = await client.get(`detector/term?term=${term}`)
+
+        return data
     }
 }

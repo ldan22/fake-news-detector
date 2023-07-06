@@ -18,7 +18,6 @@ import ro.utcn.danlupu.model.KbQueryResponse;
 import ro.utcn.danlupu.service.kb.KBFactory;
 import ro.utcn.danlupu.service.kb.query.KBQueryService;
 import ro.utcn.danlupu.service.verbalizer.SumoVerbalizer;
-import tptp_parser.TPTPFormula;
 
 import java.util.List;
 import java.util.Objects;
@@ -32,7 +31,7 @@ public class VampireKBQueryService implements KBQueryService {
 
     private final KBFactory kbFactory;
     private final SumoVerbalizer verbalizer;
-    private static final int VAMPIRE_TIMEOUT = 600;
+    private static final int VAMPIRE_TIMEOUT = 25;
 
 
     @Override

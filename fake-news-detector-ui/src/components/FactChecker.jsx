@@ -1,4 +1,4 @@
-import {Box, Button, Divider, Flex, Group, Radio, TextInput, Title} from "@mantine/core";
+import {Box, Button, Divider, Flex, Group, List, Radio, TextInput, Title} from "@mantine/core";
 import {useState} from "react";
 import {useMutation} from "react-query";
 import {api} from "../dal/api.js";
@@ -69,14 +69,15 @@ const CheckerResult = ({data}) => {
             </Flex>
             <Box>
                 <Title order={5}>
-                    TPTP Proof:
+                    Axioms used for proof:
                 </Title>
-                {data?.proof?.map(step => (
-                    <Box key={step}>
-                        {step}
-                        <Divider/>
-                    </Box>
-                ))}
+                <List>
+                    {data?.proof?.map(step => (
+                        <List.Item key={step}>
+                            {step}
+                        </List.Item>
+                    ))}
+                </List>
             </Box>
         </>
     )

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StopWatch;
 import org.w3c.dom.Text;
 import ro.utcn.danlupu.fakenewsdetectorapi.dto.FakeNewsDetectorRequest;
 import ro.utcn.danlupu.fakenewsdetectorapi.dto.FakeNewsDetectorResponse;
@@ -35,25 +36,7 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
 
     @Override
     public FakeNewsDetectorResponse check(FakeNewsDetectorRequest request) {
-        String query = convertText(request);
-        if (query == null) {
-            return null;
-        }
-        String negatedQuery = getNegatedQuery(query);
-        CompletableFuture<HttpResponse<String>> queryResponseFuture = sendQueryRequest(httpClient, query);
-        CompletableFuture<HttpResponse<String>> negatedQueryResponseFuture = sendQueryRequest(httpClient, negatedQuery);
-        CompletableFuture.allOf(queryResponseFuture, negatedQueryResponseFuture).join();
-
-        KbQueryResponse queryResponse = extractResponseFromQueryResponse(queryResponseFuture.join().body());
-        KbQueryResponse negatedQueryResponse = extractResponseFromQueryResponse(negatedQueryResponseFuture.join().body());
-        TextState queryTextState = getTextState(queryResponse);
-        TextState negatedTextState = getTextState(negatedQueryResponse);
-        TextState verdict = getVerdict(queryTextState, negatedTextState);
-
-        return FakeNewsDetectorResponse.builder()
-                .state(verdict)
-                .proof(queryResponse.proof())
-                .build();
+        return singleCheck(request);
     }
 
     @Override
@@ -74,6 +57,53 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private FakeNewsDetectorResponse singleCheck(FakeNewsDetectorRequest request) {
+        StopWatch watch = new StopWatch();
+        watch.start();
+        String query = convertText(request);
+        if (query == null) {
+            return null;
+        }
+        CompletableFuture<HttpResponse<String>> queryResponseFuture = sendQueryRequest(httpClient, query);
+        CompletableFuture.allOf(queryResponseFuture).join();
+
+        KbQueryResponse queryResponse = extractResponseFromQueryResponse(queryResponseFuture.join().body());
+        TextState queryTextState = getTextState(queryResponse);
+        watch.stop();
+
+        return FakeNewsDetectorResponse.builder()
+                .state(queryTextState)
+                .proof(queryResponse.proof())
+                .elapsedSeconds(watch.getTotalTimeSeconds())
+                .build();
+    }
+
+    private FakeNewsDetectorResponse doubleCheck(FakeNewsDetectorRequest request) {
+        StopWatch watch = new StopWatch();
+        watch.start();
+        String query = convertText(request);
+        if (query == null) {
+            return null;
+        }
+        String negatedQuery = getNegatedQuery(query);
+        CompletableFuture<HttpResponse<String>> queryResponseFuture = sendQueryRequest(httpClient, query);
+        CompletableFuture<HttpResponse<String>> negatedQueryResponseFuture = sendQueryRequest(httpClient, negatedQuery);
+        CompletableFuture.allOf(queryResponseFuture, negatedQueryResponseFuture).join();
+
+        KbQueryResponse queryResponse = extractResponseFromQueryResponse(queryResponseFuture.join().body());
+        KbQueryResponse negatedQueryResponse = extractResponseFromQueryResponse(negatedQueryResponseFuture.join().body());
+        TextState queryTextState = getTextState(queryResponse);
+        TextState negatedTextState = getTextState(negatedQueryResponse);
+        TextState verdict = getVerdict(queryTextState, negatedTextState);
+        watch.stop();
+
+        return FakeNewsDetectorResponse.builder()
+                .state(verdict)
+                .proof(queryResponse.proof())
+                .elapsedSeconds(watch.getTotalTimeSeconds())
+                .build();
     }
 
 
