@@ -1,0 +1,9 @@
+localhost {
+    gzip
+	log / stdout "{method} {path} {status}"
+	root /usr/share/caddy/html
+	rewrite {
+		regexp .*
+		to {path} /
+	}
+}

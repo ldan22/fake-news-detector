@@ -40,6 +40,22 @@ services:
     networks:
       - backend
 
+  caddy:
+    container_name: fake-news-detector-ui
+    build:
+      context: ./fake-news-detector-ui
+      dockerfile: ./docker/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./fake-news-detector-ui/docker/Caddyfile:/etc/caddy/Caddyfile
+      - caddy-config:/config
+      - caddy-data:/data
+      - react-build:/code/dist
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - proxynet
 
 #  my-sigmakee:
 #    container_name: my-sigmakee
@@ -55,3 +71,10 @@ services:
 
 networks:
   backend:
+  proxynet:
+
+
+volumes:
+  caddy-config:
+  caddy-data:
+  react-build:

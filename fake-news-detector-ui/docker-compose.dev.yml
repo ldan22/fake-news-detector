@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  caddy:
+    build:
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile
+      - caddy-config:/config
+      - caddy-data:/data
+      - react-build:/app/dist
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - proxynet
+
+
+networks:
+  proxynet:
+
+volumes:
+  caddy-config:
+  caddy-data:
+  react-build:
