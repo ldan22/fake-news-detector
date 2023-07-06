@@ -39,6 +39,11 @@ public class KBServiceImpl implements KBService {
 
     @Override
     public KBExplorerResponse getTermInformation(String term) {
+        term = kbFactory.getKB().simplifyTerm(term, true);
+        log.info("Term simplified: {}", term);
+        term = term.intern();
+        log.info("Term intern: {}", term);
+
         return KBExplorerResponse.builder()
                 .asArgument(getExpressionWhereTermIsAsArgument(term))
                 .antecedent(getExpressionWhereTermIsOfType(term, "ant"))

@@ -2,8 +2,10 @@ package ro.utcn.danlupu.service.verbalizer.impl;
 
 import com.articulate.sigma.Formula;
 import com.articulate.sigma.nlg.LanguageFormatter;
+import com.articulate.sigma.nlg.NLGUtils;
 import com.articulate.sigma.utils.StringUtil;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ro.utcn.danlupu.service.kb.KBFactory;
 import ro.utcn.danlupu.service.verbalizer.SumoVerbalizer;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class SumoVerbalizerImpl implements SumoVerbalizer {
 
     private final KBFactory kbFactory;
@@ -22,15 +25,18 @@ public class SumoVerbalizerImpl implements SumoVerbalizer {
     public String verbalize(Formula formula) {
         String strForm = formula.getFormula();
         String language = "EnglishLanguage";
-
-        LanguageFormatter languageFormatter = new LanguageFormatter(
+        NLGUtils.debug = true;
+        LanguageFormatter.debug = true;
+        String html = NLGUtils.htmlParaphrase("",
                 strForm,
                 kbFactory.getKB().getFormatMap(language),
                 kbFactory.getKB().getTermFormatMap(language),
                 kbFactory.getKB(),
                 language);
-
-        return StringUtil.filterHtml(languageFormatter.htmlParaphrase(""));
+        log.info(html);
+        log.info(StringUtil.filterHtml(html));
+        System.out.println(NLGUtils.outputMap);
+        return StringUtil.filterHtml(html);
     }
 
     @Override
