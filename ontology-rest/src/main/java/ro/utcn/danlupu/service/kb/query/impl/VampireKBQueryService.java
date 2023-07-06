@@ -1,6 +1,6 @@
 package ro.utcn.danlupu.service.kb.query.impl;
 
-import com.articulate.sigma.nlg.LanguageFormatter;
+import com.articulate.sigma.Formula;
 import com.articulate.sigma.tp.Vampire;
 import com.articulate.sigma.trans.TPTP3ProofProcessor;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,7 @@ import ro.utcn.danlupu.exception.KbQueryVampireInitException;
 import ro.utcn.danlupu.model.KbQueryResponse;
 import ro.utcn.danlupu.service.kb.KBFactory;
 import ro.utcn.danlupu.service.kb.query.KBQueryService;
-import tptp_parser.TPTPFormula;
+import ro.utcn.danlupu.service.verbalizer.SumoVerbalizer;
 
 import java.util.List;
 import java.util.Objects;
@@ -24,6 +24,7 @@ import java.util.stream.Collectors;
 public class VampireKBQueryService implements KBQueryService {
 
     private final KBFactory kbFactory;
+    private final SumoVerbalizer verbalizer;
     private static final int VAMPIRE_TIMEOUT = 600;
 
 
@@ -56,17 +57,9 @@ public class VampireKBQueryService implements KBQueryService {
                 .peek(log::info)
                 .toList();
 
-//        String language = "EnglishLanguage";
-//        sumoProof.stream().forEach(sumoStmt -> {
-//            LanguageFormatter languageFormatter = new LanguageFormatter(
-//                    sumoStmt,
-//                    kbFactory.getKB().getFormatMap(language),
-//                    kbFactory.getKB().getTermFormatMap(language),
-//                    kbFactory.getKB(),
-//                    language);
-////            log.info(languageFormatter.htmlParaphrase(""));
-//            log.info(languageFormatter.paraphraseStatement(sumoStmt, false, 1));
-//        });
+        List<String> verbalizedProof = sumoProof.stream()
+                .map(s -> verbalizer.verbalize(new Formula(s)))
+                .collect(Collectors.toList());
 
         return KbQueryResponse.builder()
                 .bindings(tpp.bindings)
@@ -74,7 +67,7 @@ public class VampireKBQueryService implements KBQueryService {
                 .inconsistency(tpp.inconsistency)
                 .containsFalse(tpp.containsFalse)
                 .noConjecture(tpp.noConjecture)
-                .proof(sumoProof)
+                .proof(verbalizedProof)
                 .build();
     }
 

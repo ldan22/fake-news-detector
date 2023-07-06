@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import ro.utcn.danlupu.model.KBExplorerResponse;
 import ro.utcn.danlupu.model.KbQueryRequest;
 import ro.utcn.danlupu.model.KbQueryResponse;
 import ro.utcn.danlupu.service.kb.KBService;
@@ -29,10 +30,10 @@ public class KBController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/term")
-    public ResponseEntity<String> getTermDocumentation(@RequestParam String term) {
+    @GetMapping("/term")
+    public ResponseEntity<KBExplorerResponse> getTermDocumentation(@RequestParam String term) {
         log.info("Request received: Get term information: {}", term);
-        String response = kbService.getTermInformation(term);
+        KBExplorerResponse response = kbService.getTermInformation(term);
         return ResponseEntity.ok(response);
     }
 }

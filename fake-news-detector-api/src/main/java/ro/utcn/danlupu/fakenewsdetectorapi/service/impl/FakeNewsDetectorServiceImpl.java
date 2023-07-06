@@ -36,14 +36,19 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
         if (query == null) {
             return null;
         }
+        String negatedQuery = getNegatedQuery(query);
         CompletableFuture<HttpResponse<String>> queryResponseFuture = sendQueryRequest(httpClient, query);
-        CompletableFuture.allOf(queryResponseFuture).join();
+        CompletableFuture<HttpResponse<String>> negatedQueryResponseFuture = sendQueryRequest(httpClient, negatedQuery);
+        CompletableFuture.allOf(queryResponseFuture, negatedQueryResponseFuture).join();
 
         KbQueryResponse queryResponse = extractResponseFromQueryResponse(queryResponseFuture.join().body());
+        KbQueryResponse negatedQueryResponse = extractResponseFromQueryResponse(negatedQueryResponseFuture.join().body());
         TextState queryTextState = getTextState(queryResponse);
+        TextState negatedTextState = getTextState(negatedQueryResponse);
+        TextState verdict = getVerdict(queryTextState, negatedTextState);
 
         return FakeNewsDetectorResponse.builder()
-                .state(queryTextState)
+                .state(verdict)
                 .proof(queryResponse.proof())
                 .build();
     }
