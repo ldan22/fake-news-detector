@@ -1,6 +1,7 @@
 package ro.utcn.danlupu.fakenewsdetectorapi.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 
@@ -28,6 +30,7 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
 
     private static final String NLP_INTERPRETER_ENDPOINT = "http://ontology-rest:8080/api/v1/nlp/interpret";
     private static final String KB_QUERY_ENDPOINT = "http://ontology-rest:8080/api/v1/kb/query";
+    private static final String KB_TERM_ENDPOINT = "http://ontology-rest:8080/api/v1/kb/term";
     HttpClient httpClient = HttpClient.newHttpClient();
 
     @Override
@@ -51,6 +54,26 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
                 .state(verdict)
                 .proof(queryResponse.proof())
                 .build();
+    }
+
+    @Override
+    public Map<String, Object> getTermInformation(String term) {
+        try {
+            if (!isOneWord(term)) {
+                throw new RuntimeException("Term should be one word");
+            }
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(KB_TERM_ENDPOINT + "?term=" + term))
+                    .header("Content-Type", "application/json")
+                    .GET()
+                    .build();
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            String jsonBody = response.body();
+            return OBJECT_MAPPER.readValue(jsonBody, new TypeReference<>() {
+            });
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -124,5 +147,9 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
             return TextState.FAKE;
         }
         return TextState.UNKNOWN;
+    }
+
+    private boolean isOneWord(String input) {
+        return input.matches("\\b\\w+\\b");
     }
 }
