@@ -31,7 +31,7 @@ public class VampireKBQueryService implements KBQueryService {
 
     private final KBFactory kbFactory;
     private final SumoVerbalizer verbalizer;
-    private static final int VAMPIRE_TIMEOUT = 25;
+    private static final int VAMPIRE_TIMEOUT = 30;
 
 
     @Override

@@ -10,7 +10,7 @@ COPY pnpm-lock.yaml ./
 
 RUN pnpm install
 
-COPY . ./
+COPY . .
 
 RUN pnpm run build
 

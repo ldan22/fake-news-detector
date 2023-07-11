@@ -36,9 +36,13 @@ public class SumoMapperImpl implements SumoMapper {
                 for (CoreLabel token : tokens) {
                     String sumo = getSumoTerm(token);
                     log.info("Orig: {}, Sumo: {}", token.originalText(), sumo);
-                    if (StringUtils.isNotEmpty(sumo)) {
-                        mappedText = mappedText.replace(token.originalText(), sumo);
+                    log.info("Before: {}, After: {}", token.before(), token.after());
+                    log.info("Lemma: {}, Word: {}, Tag: {}", token.lemma(), token.word(), token.tag());
+                    if (StringUtils.isEmpty(sumo) || "Attribute".equals(sumo) || "Entity".equals(sumo)) {
+                        continue;
                     }
+                    mappedText = mappedText.replace(token.originalText(), sumo);
+
                 }
             }
             return mappedText;
