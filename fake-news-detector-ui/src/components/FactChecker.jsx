@@ -1,7 +1,8 @@
-import {Box, Button, Divider, Flex, Group, List, Radio, TextInput, Title} from "@mantine/core";
+import {Box, Button, Divider, Flex, Grid, Group, List, Radio, TextInput, Title} from "@mantine/core";
 import {useState} from "react";
 import {useMutation} from "react-query";
 import {api} from "../dal/api.js";
+import {testData} from "../test/testData.js";
 
 const FactChecker = () => {
     const [text, setText] = useState('');
@@ -46,6 +47,12 @@ const FactChecker = () => {
                     Check
                 </Button>
             </form>
+            <Box style={{position: "absolute", top: "150px", right: "50px"}}>
+                <Title order={4}>
+                    Test data:
+                </Title>
+                <TestTextsBox setText={setText}/>
+            </Box>
 
             {factCheckerMutation.isError ? (
                 <Box mt={'20px'}>An error occurred: {factCheckerMutation.error.message}</Box>
@@ -87,6 +94,20 @@ const CheckerResult = ({data}) => {
                     ))}
                 </List>
             </Box>
+        </>
+    )
+}
+
+
+const TestTextsBox = ({setText}) => {
+    return (
+        <>
+            {testData.map(t => (
+                <Box key={t.text} onClick={() => setText(t.text)} style={{cursor: "pointer"}}>
+                    {t.text}
+                    <Divider/>
+                </Box>
+            ))}
         </>
     )
 }
