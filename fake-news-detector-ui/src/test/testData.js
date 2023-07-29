@@ -6,9 +6,6 @@ export const testData = [
         text: "Some lipids are unhealthy"
     },
     {
-        text: "All lipids are unhealthy"
-    },
-    {
         text: "Some sugar causes obesity"
     },
     {

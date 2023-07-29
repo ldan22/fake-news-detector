@@ -1,0 +1,9 @@
+{
+  "state": "TRUE",
+  "proof": [
+    "for all an object if the object is an instance of broccoli, then there exist another object and a third object such that the other object is a part of the object and the third object is a part of the object and the third object is an instance of biological fiber and the other object is an instance of vitamin",
+    "for all an object if there exists another object such that the object is a part of the other object and the other object is an instance of exoskeleton or the other object is an instance of skeleton, then the object is an instance of bone and if the object is an instance of bone, then there exists the other object such that the object is a part of the other object and the other object is an instance of exoskeleton or the other object is an instance of skeleton",
+    "for all an entity there exist an agent and a process such that the entity is a patient of the process and the agent is an agent of the process and the entity is an instance of bone and the process is an instance of increasing and the agent is an instance of calcium"
+  ],
+  "elapsedSeconds": 6.737559
+}

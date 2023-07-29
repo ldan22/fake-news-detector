@@ -1,5 +1,6 @@
 package ro.utcn.danlupu.service.nlp.impl;
 
+import com.articulate.nlp.WNMultiWordAnnotator;
 import com.articulate.nlp.WSDAnnotator;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -35,9 +36,13 @@ public class SumoMapperImpl implements SumoMapper {
                 List<CoreLabel> tokens = getTokens(sentence);
                 for (CoreLabel token : tokens) {
                     String sumo = getSumoTerm(token);
+                    String multiWord = getSumoMultiWord(token);
+                    String sense = token.get(WSDAnnotator.WSDAnnotation.class);
                     log.info("Orig: {}, Sumo: {}", token.originalText(), sumo);
                     log.info("Before: {}, After: {}", token.before(), token.after());
                     log.info("Lemma: {}, Word: {}, Tag: {}", token.lemma(), token.word(), token.tag());
+                    log.info("Is multiword: {}, is first in multi-word: {} multi-words: {}", token.isMWT(), token.isMWTFirst(), multiWord);
+                    log.info("Sense: {}", sense);
                     if (StringUtils.isEmpty(sumo) || "Attribute".equals(sumo) || "Entity".equals(sumo)) {
                         continue;
                     }
@@ -65,5 +70,9 @@ public class SumoMapperImpl implements SumoMapper {
 
     private String getSumoTerm(CoreLabel token) {
         return token.get(WSDAnnotator.SUMOAnnotation.class);
+    }
+
+    private String getSumoMultiWord(CoreLabel token){
+        return token.get(WNMultiWordAnnotator.WNMultiWordAnnotation.class);
     }
 }

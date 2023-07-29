@@ -19,6 +19,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -36,7 +38,7 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
 
     @Override
     public FakeNewsDetectorResponse check(FakeNewsDetectorRequest request) {
-        return singleCheck(request);
+        return doubleCheck(request);
     }
 
     @Override
@@ -84,24 +86,53 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
         StopWatch watch = new StopWatch();
         watch.start();
         String query = convertText(request);
+
         if (query == null) {
             return null;
         }
-        String negatedQuery = getNegatedQuery(query);
+
         CompletableFuture<HttpResponse<String>> queryResponseFuture = sendQueryRequest(httpClient, query);
-        CompletableFuture<HttpResponse<String>> negatedQueryResponseFuture = sendQueryRequest(httpClient, negatedQuery);
-        CompletableFuture.allOf(queryResponseFuture, negatedQueryResponseFuture).join();
-
         KbQueryResponse queryResponse = extractResponseFromQueryResponse(queryResponseFuture.join().body());
-        KbQueryResponse negatedQueryResponse = extractResponseFromQueryResponse(negatedQueryResponseFuture.join().body());
-        TextState queryTextState = getTextState(queryResponse);
-        TextState negatedTextState = getTextState(negatedQueryResponse);
-        TextState verdict = getVerdict(queryTextState, negatedTextState);
-        watch.stop();
+        TextState queryState = getTextState(queryResponse);
+        log.info("Query text state: {}", queryState);
 
+        if (queryState.equals(TextState.TRUE)) {
+            watch.stop();
+            return FakeNewsDetectorResponse.builder()
+                    .state(TextState.TRUE)
+                    .proof(queryResponse.proof())
+                    .elapsedSeconds(watch.getTotalTimeSeconds())
+                    .build();
+        }
+
+        if (queryState.equals(TextState.FAKE)) {
+            watch.stop();
+            return FakeNewsDetectorResponse.builder()
+                    .state(TextState.FAKE)
+                    .proof(queryResponse.proof())
+                    .elapsedSeconds(watch.getTotalTimeSeconds())
+                    .build();
+        }
+
+        String negatedQuery = getNegatedQuery(query);
+        CompletableFuture<HttpResponse<String>> negatedQueryResponseFuture = sendQueryRequest(httpClient, negatedQuery);
+        KbQueryResponse negatedQueryResponse = extractResponseFromQueryResponse(negatedQueryResponseFuture.join().body());
+        TextState negatedQueryState = getTextState(negatedQueryResponse);
+        log.info("Negated query text state: {}", negatedQueryState);
+
+        if (negatedQueryState.equals(TextState.TRUE)) {
+            watch.stop();
+            return FakeNewsDetectorResponse.builder()
+                    .state(TextState.FAKE)
+                    .proof(negatedQueryResponse.proof())
+                    .elapsedSeconds(watch.getTotalTimeSeconds())
+                    .build();
+        }
+
+        watch.stop();
         return FakeNewsDetectorResponse.builder()
-                .state(verdict)
-                .proof(queryResponse.proof())
+                .state(TextState.UNKNOWN)
+                .proof(Collections.emptyList())
                 .elapsedSeconds(watch.getTotalTimeSeconds())
                 .build();
     }
@@ -155,14 +186,17 @@ public class FakeNewsDetectorServiceImpl implements FakeNewsDetectorService {
     }
 
     private TextState getTextState(KbQueryResponse response) {
-        if (response.proof() == null) {
+        if (response.inconsistency()) {
             return TextState.FAKE;
+        }
+        if(response.proof() == null){
+            return TextState.UNKNOWN;
         }
         int proofSize = response.proof().size();
         if (proofSize > 0 && !response.noConjecture()) {
             return TextState.TRUE;
         }
-        return TextState.FAKE;
+        return TextState.UNKNOWN;
     }
 
     private String getNegatedQuery(String query) {

@@ -27,7 +27,9 @@ const KBExplorer = () => {
             <TextInput
                 label="Term"
                 value={text}
-                onChange={(event) => setText(event.currentTarget.value)}
+                onChange={(event) => {
+                    setText(event.currentTarget.value)
+                }}
                 required
             />
 

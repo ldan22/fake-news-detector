@@ -1,0 +1,7 @@
+{
+  "state": "TRUE",
+  "proof": [
+    "for all an entity and a process there exists an agent such that the entity is a patient of the process and the agent is an agent of the process and the entity is an instance of Obesity and the process is an instance of causing and the agent is an instance of sugar"
+  ],
+  "elapsedSeconds": 6.6661474
+}

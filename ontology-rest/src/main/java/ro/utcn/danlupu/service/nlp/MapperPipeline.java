@@ -15,7 +15,7 @@ public class MapperPipeline {
         if (pipeline == null) {
             synchronized (MapperPipeline.class) {
                 if (pipeline == null) {
-                    String propString = "tokenize, ssplit, pos, lemma, parse, depparse, ner, wsd";
+                    String propString = "tokenize, ssplit, pos, lemma, parse, depparse, ner, wsd, wnmw";
                     log.info("Pipeline is null. Initialize: {}", propString);
                     pipeline = new Pipeline(true, propString);
                 }

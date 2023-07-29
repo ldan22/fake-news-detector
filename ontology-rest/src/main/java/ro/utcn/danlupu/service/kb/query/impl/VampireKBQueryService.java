@@ -1,14 +1,8 @@
 package ro.utcn.danlupu.service.kb.query.impl;
 
 import com.articulate.sigma.Formula;
-import com.articulate.sigma.KBmanager;
-import com.articulate.sigma.ProofProcessor;
-import com.articulate.sigma.nlg.NLGUtils;
 import com.articulate.sigma.tp.Vampire;
-import com.articulate.sigma.trans.SUMOKBtoTPTPKB;
 import com.articulate.sigma.trans.TPTP3ProofProcessor;
-import com.articulate.sigma.utils.FileUtil;
-import com.articulate.sigma.utils.StringUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -58,7 +52,6 @@ public class VampireKBQueryService implements KBQueryService {
 
         List<String> sumoProof = tpp.proof.stream()
                 .filter(tptpFormula -> Objects.equals(tptpFormula.role, "axiom"))
-                .peek(tptpFormula -> log.info(tptpFormula.formula))
                 .map(tptpFormula -> tptpFormula.sumo)
                 .peek(log::info)
                 .toList();

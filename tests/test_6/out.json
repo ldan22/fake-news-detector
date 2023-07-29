@@ -1,0 +1,7 @@
+{
+  "state": "TRUE",
+  "proof": [
+    "for all an object if the object is an instance of salmon, then there exists another object such that the other object is a part of the object and the other object is an instance of omega-3"
+  ],
+  "elapsedSeconds": 5.6494683
+}

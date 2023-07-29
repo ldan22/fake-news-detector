@@ -25,17 +25,12 @@ public class SumoVerbalizerImpl implements SumoVerbalizer {
     public String verbalize(Formula formula) {
         String strForm = formula.getFormula();
         String language = "EnglishLanguage";
-        NLGUtils.debug = true;
-        LanguageFormatter.debug = true;
         String html = NLGUtils.htmlParaphrase("",
                 strForm,
                 kbFactory.getKB().getFormatMap(language),
                 kbFactory.getKB().getTermFormatMap(language),
                 kbFactory.getKB(),
                 language);
-        log.info(html);
-        log.info(StringUtil.filterHtml(html));
-        System.out.println(NLGUtils.outputMap);
         return StringUtil.filterHtml(html);
     }
 

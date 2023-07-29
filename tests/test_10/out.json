@@ -1,0 +1,14 @@
+{
+  "state": "FAKE",
+  "proof": [
+    "salt is an instance of class",
+    "salt is a subclass of salt",
+    "for all an object if the object is an instance of object, then if healthy is not an attribute of the object, then Unhealthy is an attribute of the object and if Unhealthy is an attribute of the object, then healthy is not an attribute of the object",
+    "for all a class, another class and an entity if the other class is an instance of class and the class is an instance of class, then if the entity is an instance of the class and the class is a subclass of the other class, then the entity is an instance of the other class",
+    "object is an instance of class",
+    "there exists an object such that healthy is an attribute of the object and the object is an instance of salt",
+    "salt is a subclass of object",
+    "salt is an instance of class"
+  ],
+  "elapsedSeconds": 16.5205882
+}
