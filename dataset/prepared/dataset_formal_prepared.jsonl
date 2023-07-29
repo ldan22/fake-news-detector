@@ -1,0 +1,418 @@
+{"prompt":"Fire is hot ->","completion":" If ?X is an instance of fire, then ?X has the attribute hot.\n"}
+{"prompt":"Music is soothing ->","completion":" If ?X is an instance of music, then ?X has the attribute soothing.\n"}
+{"prompt":"Sugar is sweet ->","completion":" If ?X is an instance of sugar, then ?X has the attribute sweet.\n"}
+{"prompt":"Knowledge is powerful ->","completion":" If ?X is an instance of knowledge, then ?X has the attribute powerful.\n"}
+{"prompt":"Coffee is addictive ->","completion":" If ?X is an instance of coffee, then ?X has the attribute addictive.\n"}
+{"prompt":"Laughter is contagious ->","completion":" If ?X is an instance of laughter, then ?X has the attribute contagious.\n"}
+{"prompt":"Knowledge is infinite ->","completion":" If ?X is an instance of knowledge, then ?X has the attribute infinite.\n"}
+{"prompt":"Love is blind ->","completion":" If ?X is an instance of love, then ?X has the attribute blind.\n"}
+{"prompt":"Winter is cold ->","completion":" If ?X is an instance of winter, then ?X has the attribute cold.\n"}
+{"prompt":"Sun is bright ->","completion":" If ?X is an instance of sun, then ?X has the attribute bright.\n"}
+{"prompt":"The moon is spherical ->","completion":" If ?X is an instance of moon, then ?X has the attribute spherical.\n"}
+{"prompt":"The piano is musical ->","completion":" If ?X is an instance of piano, then ?X has the attribute musical.\n"}
+{"prompt":"The knife is sharp ->","completion":" If ?X is an instance of knife, then ?X has the attribute sharp.\n"}
+{"prompt":"The diamond is hard ->","completion":" If ?X is an instance of diamond, then ?X has the attribute hard.\n"}
+{"prompt":"The orange is juicy ->","completion":" If ?X is an instance of orange, then ?X has the attribute juicy.\n"}
+{"prompt":"The honey is sticky ->","completion":" If ?X is an instance of honey, then ?X has the attribute sticky.\n"}
+{"prompt":"The elephant is big ->","completion":" If ?X is an instance of elephant, then ?X has the attribute big.\n"}
+{"prompt":"The snail is slow ->","completion":" If ?X is an instance of snail, then ?X has the attribute slow.\n"}
+{"prompt":"The coffee is hot ->","completion":" If ?X is an instance of coffee, then ?X has the attribute hot.\n"}
+{"prompt":"The spider is creepy ->","completion":" If ?X is an instance of spider, then ?X has the attribute creepy.\n"}
+{"prompt":"Fats are unhealthy ->","completion":" If ?X is an instance of fat then ?X has attribute unhealthy\n"}
+{"prompt":"Humans are intelligent ->","completion":" If ?X is an instance of human, then ?X has attribute intelligent.\n"}
+{"prompt":"Roses are red ->","completion":" If ?X is an instance of rose, then ?X has attribute red.\n"}
+{"prompt":"Rainbows are beautiful ->","completion":" If ?X is an instance of rainbow, then ?X has attribute beautiful.\n"}
+{"prompt":"Cacti are prickly ->","completion":" If ?X is an instance of cactus, then ?X has the attribute prickly.\n"}
+{"prompt":"Strawberries are sweet ->","completion":" If ?X is an instance of strawberry, then ?X has the attribute sweet.\n"}
+{"prompt":"Dolphins are intelligent ->","completion":" If ?X is an instance of dolphin, then ?X has the attribute intelligent.\n"}
+{"prompt":"Chilies are spicy ->","completion":" If ?X is an instance of chili, then ?X has the attribute spicy.\n"}
+{"prompt":"Deserts are dry ->","completion":" If ?X is an instance of desert, then ?X has the attribute dry.\n"}
+{"prompt":"Winters are cold ->","completion":" If ?X is an instance of winter, then ?X has the attribute cold.\n"}
+{"prompt":"Lions are powerful ->","completion":" If ?X is an instance of lion, then ?X has the attribute powerful.\n"}
+{"prompt":"Chocolates are delicious ->","completion":" If ?X is an instance of chocolate, then ?X has the attribute delicious.\n"}
+{"prompt":"Computers are useful ->","completion":" If ?X is an instance of computer, then ?X has the attribute useful.\n"}
+{"prompt":"Mountains are high ->","completion":" If ?X is an instance of mountain, then ?X has the attribute high.\n"}
+{"prompt":"Some dogs are aggressive ->","completion":" Exists an instance ?X of dog such that ?X has attribute aggressive.\n"}
+{"prompt":"Some apples are sour ->","completion":" Exists an instance ?X of apple such that ?X has attribute sour.\n"}
+{"prompt":"Some cars are fast ->","completion":" Exists an instance ?X of car such that ?X has attribute fast.\n"}
+{"prompt":"Some snakes are poisonous ->","completion":" Exists an instance ?X of snake such that ?X has attribute poisonous.\n"}
+{"prompt":"Some books are informative ->","completion":" Exists an instance ?X of book such that ?X has attribute informative.\n"}
+{"prompt":"Some stones are shiny ->","completion":" Exists an instance ?X of stone such that ?X has attribute shiny.\n"}
+{"prompt":"Some birds are colorful ->","completion":" Exists an instance ?X of bird such that ?X has attribute colorful.\n"}
+{"prompt":"Some people are kind ->","completion":" Exists an instance ?X of person such that ?X has attribute kind.\n"}
+{"prompt":"Some plants are medicinal ->","completion":" Exists an instance ?X of plant such that ?X has attribute medicinal.\n"}
+{"prompt":"Some drinks are refreshing ->","completion":" Exists an instance ?X of drink such that ?X has attribute refreshing.\n"}
+{"prompt":"Some stars are bright ->","completion":" Exists an instance ?X of star such that ?X has attribute bright.\n"}
+{"prompt":"Some flowers are fragrant ->","completion":" Exists an instance ?X of flower such that ?X has attribute fragrant.\n"}
+{"prompt":"Some books are boring ->","completion":" Exists an instance ?X of book such that ?X has attribute boring.\n"}
+{"prompt":"Some cities are crowded ->","completion":" Exists an instance ?X of city such that ?X has attribute crowded.\n"}
+{"prompt":"Some movies are thrilling ->","completion":" Exists an instance ?X of movie such that ?X has attribute thrilling.\n"}
+{"prompt":"Some guitars are expensive ->","completion":" Exists an instance ?X of guitar such that ?X has attribute expensive.\n"}
+{"prompt":"Some fish are tiny ->","completion":" Exists an instance ?X of fish such that ?X has attribute tiny.\n"}
+{"prompt":"Some birds are loud ->","completion":" Exists an instance ?X of bird such that ?X has attribute loud.\n"}
+{"prompt":"Some trees are old ->","completion":" Exists an instance ?X of tree such that ?X has attribute old.\n"}
+{"prompt":"Some phones are lightweight ->","completion":" Exists an instance ?X of phone such that ?X has attribute lightweight.\n"}
+{"prompt":"Some dogs are small ->","completion":" Exists an instance ?X of dog such that ?X has attribute small.\n"}
+{"prompt":"Some planets are habitable ->","completion":" Exists an instance ?X of planet such that ?X has attribute habitable.\n"}
+{"prompt":"Some drinks are cold ->","completion":" Exists an instance ?X of drink such that ?X has attribute cold.\n"}
+{"prompt":"Some buildings are tall ->","completion":" Exists an instance ?X of building such that ?X has attribute tall.\n"}
+{"prompt":"Some rivers are long ->","completion":" Exists an instance ?X of river such that ?X has attribute long.\n"}
+{"prompt":"Some foods are spicy ->","completion":" Exists an instance ?X of food such that ?X has attribute spicy.\n"}
+{"prompt":"Some people are tall ->","completion":" Exists an instance ?X of person such that ?X has attribute tall.\n"}
+{"prompt":"Some roads are winding ->","completion":" Exists an instance ?X of road such that ?X has attribute winding.\n"}
+{"prompt":"Some lakes are deep ->","completion":" Exists an instance ?X of lake such that ?X has attribute deep.\n"}
+{"prompt":"Some books are interesting ->","completion":" Exists an instance ?X of book such that ?X has attribute interesting.\n"}
+{"prompt":"All apples are sweet ->","completion":" Forall ?X, If ?X is an instance of apple, then ?X has the attribute sweet.\n"}
+{"prompt":"All lemons are sour ->","completion":" Forall ?X, If ?X is an instance of lemon, then ?X has the attribute sour.\n"}
+{"prompt":"All skyscrapers are tall ->","completion":" Forall ?X, If ?X is an instance of skyscraper, then ?X has the attribute tall.\n"}
+{"prompt":"All tigers are striped ->","completion":" Forall ?X, If ?X is an instance of tiger, then ?X has the attribute striped.\n"}
+{"prompt":"All rivers are flowing ->","completion":" Forall ?X, If ?X is an instance of river, then ?X has the attribute flowing.\n"}
+{"prompt":"All pianos are musical ->","completion":" Forall ?X, If ?X is an instance of piano, then ?X has the attribute musical.\n"}
+{"prompt":"All snakes are slithering ->","completion":" Forall ?X, If ?X is an instance of snake, then ?X has the attribute slithering.\n"}
+{"prompt":"All roses are fragrant ->","completion":" Forall ?X, If ?X is an instance of rose, then ?X has the attribute fragrant.\n"}
+{"prompt":"All deserts are hot ->","completion":" Forall ?X, If ?X is an instance of desert, then ?X has the attribute hot.\n"}
+{"prompt":"All oceans are salty ->","completion":" Forall ?X, If ?X is an instance of ocean, then ?X has the attribute salty.\n"}
+{"prompt":"All meats are high in protein ->","completion":" Forall ?X, If ?X is an instance of meat, then ?X has the attribute high-in-protein.\n"}
+{"prompt":"All soda drinks are high in sugar ->","completion":" Forall ?X, If ?X is an instance of soda-drink, then ?X has the attribute high-in-sugar.\n"}
+{"prompt":"All whole grains are high in fiber ->","completion":" Forall ?X, If ?X is an instance of whole-grain, then ?X has the attribute high-in-fiber.\n"}
+{"prompt":"All green vegetables are rich in vitamins ->","completion":" Forall ?X, If ?X is an instance of green-vegetable, then ?X has the attribute rich-in-vitamins.\n"}
+{"prompt":"All fast foods are high in calories ->","completion":" Forall ?X, If ?X is an instance of fast-food, then ?X has the attribute high-in-calories.\n"}
+{"prompt":"Some fruits are high in fiber ->","completion":" Exists an instance ?X of fruit such that ?X has attribute high-in-fiber.\n"}
+{"prompt":"Some vegetables are low in calories ->","completion":" Exists an instance ?X of vegetable such that ?X has attribute low-in-calories.\n"}
+{"prompt":"There are foods that are high in protein ->","completion":" Exists an instance ?X of food such that ?X has attribute high-in-protein.\n"}
+{"prompt":"Some diets are low in carbohydrates ->","completion":" Exists an instance ?X of diet such that ?X has attribute low-in-carbohydrates.\n"}
+{"prompt":"There are snacks that are high in sugar ->","completion":" Exists an instance ?X of snack such that ?X has attribute high-in-sugar.\n"}
+{"prompt":"Meat is high in protein ->","completion":" If ?X is an instance of meat, then ?X has the attribute high-in-protein.\n"}
+{"prompt":"Soda drinks are high in sugar ->","completion":" If ?X is an instance of soda-drink, then ?X has the attribute high-in-sugar.\n"}
+{"prompt":"Whole grains are high in fiber ->","completion":" If ?X is an instance of whole-grain, then ?X has the attribute high-in-fiber.\n"}
+{"prompt":"Green vegetables are rich in vitamins ->","completion":" If ?X is an instance of green-vegetable, then ?X has the attribute rich-in-vitamins.\n"}
+{"prompt":"Fast foods are high in calories ->","completion":" If ?X is an instance of fast-food, then ?X has the attribute high-in-calories.\n"}
+{"prompt":"There is a fruit that is high in fiber ->","completion":" Exists an instance ?X of fruit such that ?X has attribute high-in-fiber.\n"}
+{"prompt":"There is a vegetable that is low in calories ->","completion":" Exists an instance ?X of vegetable such that ?X has attribute low-in-calories.\n"}
+{"prompt":"A type of food is high in protein ->","completion":" Exists an instance ?X of food such that ?X has attribute high-in-protein.\n"}
+{"prompt":"A diet exists that is low in carbohydrates ->","completion":" Exists an instance ?X of diet such that ?X has attribute low-in-carbohydrates.\n"}
+{"prompt":"A snack can be high in sugar ->","completion":" Exists an instance ?X of snack such that ?X has attribute high-in-sugar.\n"}
+{"prompt":"Apples are healthy ->","completion":" If ?X is an instance of apple, then ?X has the attribute healthy.\n"}
+{"prompt":"Spinach is healthy ->","completion":" If ?X is an instance of spinach, then ?X has the attribute healthy.\n"}
+{"prompt":"Oatmeal is healthy ->","completion":" If ?X is an instance of oatmeal, then ?X has the attribute healthy.\n"}
+{"prompt":"Broccoli is healthy ->","completion":" If ?X is an instance of broccoli, then ?X has the attribute healthy.\n"}
+{"prompt":"Blueberries are healthy ->","completion":" If ?X is an instance of blueberry, then ?X has the attribute healthy.\n"}
+{"prompt":"Fast food is unhealthy ->","completion":" If ?X is an instance of fast food, then ?X has the attribute unhealthy.\n"}
+{"prompt":"Chips are unhealthy ->","completion":" If ?X is an instance of chip, then ?X has the attribute unhealthy.\n"}
+{"prompt":"Soda is unhealthy ->","completion":" If ?X is an instance of soda, then ?X has the attribute unhealthy.\n"}
+{"prompt":"Candy is unhealthy ->","completion":" If ?X is an instance of candy, then ?X has the attribute unhealthy.\n"}
+{"prompt":"Deep fried food is high fat ->","completion":" If ?X is an instance of deep fried food, then ?X has the attribute high fat.\n"}
+{"prompt":"Butter is high fat ->","completion":" If ?X is an instance of butter, then ?X has the attribute high fat.\n"}
+{"prompt":"Avocado is high fat ->","completion":" If ?X is an instance of avocado, then ?X has the attribute high fat.\n"}
+{"prompt":"Chicken breast is low fat ->","completion":" If ?X is an instance of chicken breast, then ?X has the attribute low fat.\n"}
+{"prompt":"Tuna is low fat ->","completion":" If ?X is an instance of tuna, then ?X has the attribute low fat.\n"}
+{"prompt":"Carrots are nutritious ->","completion":" If ?X is an instance of carrot, then ?X has the attribute nutritious.\n"}
+{"prompt":"Almonds are nutritious ->","completion":" If ?X is an instance of almond, then ?X has the attribute nutritious.\n"}
+{"prompt":"Quinoa is nutritious ->","completion":" If ?X is an instance of quinoa, then ?X has the attribute nutritious.\n"}
+{"prompt":"Eggs are nutritious ->","completion":" If ?X is an instance of egg, then ?X has the attribute nutritious.\n"}
+{"prompt":"Salmon is nutritious ->","completion":" If ?X is an instance of salmon, then ?X has the attribute nutritious.\n"}
+{"prompt":"Fried chicken is unhealthy ->","completion":" If ?X is an instance of fried chicken, then ?X has the attribute unhealthy.\n"}
+{"prompt":"Processed meat is unhealthy ->","completion":" If ?X is an instance of processed meat, then ?X has the attribute unhealthy.\n"}
+{"prompt":"Sausages are unhealthy ->","completion":" If ?X is an instance of sausage, then ?X has the attribute unhealthy.\n"}
+{"prompt":"Ice cream is unhealthy ->","completion":" If ?X is an instance of ice cream, then ?X has the attribute unhealthy.\n"}
+{"prompt":"Doughnuts are unhealthy ->","completion":" If ?X is an instance of doughnut, then ?X has the attribute unhealthy.\n"}
+{"prompt":"Pork belly is high fat ->","completion":" If ?X is an instance of pork belly, then ?X has the attribute high fat.\n"}
+{"prompt":"Cheese is high fat ->","completion":" If ?X is an instance of cheese, then ?X has the attribute high fat.\n"}
+{"prompt":"Fatty beef is high fat ->","completion":" If ?X is an instance of fatty beef, then ?X has the attribute high fat.\n"}
+{"prompt":"Cream is high fat ->","completion":" If ?X is an instance of cream, then ?X has the attribute high fat.\n"}
+{"prompt":"Coconut oil is high fat ->","completion":" If ?X is an instance of coconut oil, then ?X has the attribute high fat.\n"}
+{"prompt":"Turkey is low fat ->","completion":" If ?X is an instance of turkey, then ?X has the attribute low fat.\n"}
+{"prompt":"Skimmed milk is low fat ->","completion":" If ?X is an instance of skimmed milk, then ?X has the attribute low fat.\n"}
+{"prompt":"Rice cakes are low fat ->","completion":" If ?X is an instance of rice cake, then ?X has the attribute low fat.\n"}
+{"prompt":"Lean beef is low fat ->","completion":" If ?X is an instance of lean beef, then ?X has the attribute low fat.\n"}
+{"prompt":"Egg whites are low fat ->","completion":" If ?X is an instance of egg white, then ?X has the attribute low fat.\n"}
+{"prompt":"Sweet potatoes are nutritious ->","completion":" If ?X is an instance of sweet potato, then ?X has the attribute nutritious.\n"}
+{"prompt":"Brown rice is nutritious ->","completion":" If ?X is an instance of brown rice, then ?X has the attribute nutritious.\n"}
+{"prompt":"Greek yogurt is nutritious ->","completion":" If ?X is an instance of greek yogurt, then ?X has the attribute nutritious.\n"}
+{"prompt":"Kidney beans are nutritious ->","completion":" If ?X is an instance of kidney bean, then ?X has the attribute nutritious.\n"}
+{"prompt":"Whole grains are nutritious ->","completion":" If ?X is an instance of whole grain, then ?X has the attribute nutritious.\n"}
+{"prompt":"Fruits and vegetables are healthy ->","completion":" If ?F is an instance of fruit and ?V is an instance of vegetable, then ?F has the attribute healthy and ?V has attribute healthy\n"}
+{"prompt":"Lions and tigers are ferocious. ->","completion":" If ?L is an instance of lion and ?T is an instance of tiger, then ?L has the attribute ferocious and ?T has attribute ferocious\n"}
+{"prompt":"Sunflowers and daisies are colorful. ->","completion":" If ?S is an instance of sunflower and ?D is an instance of daisy, then ?S has the attribute colorful and ?D has attribute colorful\n"}
+{"prompt":"Rabbits and deer are swift. ->","completion":" If ?R is an instance of rabbit and ?D is an instance of deer, then ?R has the attribute swift and ?D has attribute swift\n"}
+{"prompt":"Whales and dolphins are intelligent. ->","completion":" If ?W is an instance of whale and ?D is an instance of dolphin, then ?W has the attribute intelligent and ?D has attribute intelligent\n"}
+{"prompt":"Apples and oranges are nutritious. ->","completion":" If ?A is an instance of apple and ?O is an instance of orange, then ?A has the attribute nutritious and ?O has attribute nutritious\n"}
+{"prompt":"Mountains and oceans are majestic. ->","completion":" If ?M is an instance of mountain and ?O is an instance of ocean, then ?M has the attribute majestic and ?O has attribute majestic\n"}
+{"prompt":"Oak and maple trees are tall. ->","completion":" If ?O is an instance of oak and ?M is an instance of maple, then ?O has the attribute tall and ?M has attribute tall\n"}
+{"prompt":"Eagles and hawks are powerful. ->","completion":" If ?E is an instance of eagle and ?H is an instance of hawk, then ?E has the attribute powerful and ?H has attribute powerful\n"}
+{"prompt":"Violins and cellos are melodious. ->","completion":" If ?V is an instance of violin and ?C is an instance of cello, then ?V has the attribute melodious and ?C has attribute melodious\n"}
+{"prompt":"Chilies and peppers are spicy. ->","completion":" If ?C is an instance of chili and ?P is an instance of pepper, then ?C has the attribute spicy and ?P has attribute spicy\n"}
+{"prompt":"Fruits are nutritious and healthy. ->","completion":" If ?F is an instance of fruit, then ?F has the attribute nutritious and ?F has attribute healthy\n"}
+{"prompt":"Cars are fast and convenient. ->","completion":" If ?C is an instance of car, then ?C has the attribute fast and ?C has attribute convenient\n"}
+{"prompt":"Sunflowers are tall and beautiful. ->","completion":" If ?S is an instance of sunflower, then ?S has the attribute tall and ?S has attribute beautiful\n"}
+{"prompt":"Books are informative and entertaining. ->","completion":" If ?B is an instance of book, then ?B has the attribute informative and ?B has attribute entertaining\n"}
+{"prompt":"Wolves are wild and ferocious. ->","completion":" If ?W is an instance of wolf, then ?W has the attribute wild and ?W has attribute ferocious\n"}
+{"prompt":"Dolphins are intelligent and playful. ->","completion":" If ?D is an instance of dolphin, then ?D has the attribute intelligent and ?D has attribute playful\n"}
+{"prompt":"Giraffes are tall and graceful. ->","completion":" If ?G is an instance of giraffe, then ?G has the attribute tall and ?G has attribute graceful\n"}
+{"prompt":"Mountains are majestic and inspiring. ->","completion":" If ?M is an instance of mountain, then ?M has the attribute majestic and ?M has attribute inspiring\n"}
+{"prompt":"Computers are useful and efficient. ->","completion":" If ?C is an instance of computer, then ?C has the attribute useful and ?C has attribute efficient\n"}
+{"prompt":"Roses are fragrant and beautiful. ->","completion":" If ?R is an instance of rose, then ?R has the attribute fragrant and ?R has attribute beautiful\n"}
+{"prompt":"All fire is hot ->","completion":" For all ?X, If ?X is an instance of fire, then ?X has the attribute hot.\n"}
+{"prompt":"All music is soothing ->","completion":" For all ?X, If ?X is an instance of music, then ?X has the attribute soothing.\n"}
+{"prompt":"All sugar is sweet ->","completion":" For all ?X, If ?X is an instance of sugar, then ?X has the attribute sweet.\n"}
+{"prompt":"All knowledge is powerful ->","completion":" For all ?X, If ?X is an instance of knowledge, then ?X has the attribute powerful.\n"}
+{"prompt":"All coffee is addictive ->","completion":" For all ?X, If ?X is an instance of coffee, then ?X has the attribute addictive.\n"}
+{"prompt":"All laughter is contagious ->","completion":" For all ?X, If ?X is an instance of laughter, then ?X has the attribute contagious.\n"}
+{"prompt":"All deserts are dry ->","completion":" For all ?X, If ?X is an instance of desert, then ?X has the attribute dry.\n"}
+{"prompt":"All winters are cold ->","completion":" For all ?X, If ?X is an instance of winter, then ?X has the attribute cold.\n"}
+{"prompt":"All lions are powerful ->","completion":" For all ?X, If ?X is an instance of lion, then ?X has the attribute powerful.\n"}
+{"prompt":"All chocolates are delicious ->","completion":" For all ?X, If ?X is an instance of chocolate, then ?X has the attribute delicious.\n"}
+{"prompt":"All computers are useful ->","completion":" For all ?X, If ?X is an instance of computer, then ?X has the attribute useful.\n"}
+{"prompt":"All mountains are high ->","completion":" For all ?X, If ?X is an instance of mountain, then ?X has the attribute high.\n"}
+{"prompt":"The box contains a toy. ->","completion":" If ?B is an instance of box, then there exists ?T such that ?T is an instance of toy and ?B spatially contains ?T.\n"}
+{"prompt":"The cupboard contains dishes. ->","completion":" If ?C is an instance of cupboard, then there exists ?D such that ?D is an instance of dish and ?C spatially contains ?D.\n"}
+{"prompt":"The basket contains fruit. ->","completion":" If ?B is an instance of basket, then there exists ?F such that ?F is an instance of fruit and ?B spatially contains ?F.\n"}
+{"prompt":"The bag contains a book. ->","completion":" If ?B is an instance of bag, then there exists ?Bk such that ?Bk is an instance of book and ?B spatially contains ?Bk.\n"}
+{"prompt":"The fridge contains groceries. ->","completion":" If ?F is an instance of fridge, then there exists ?G such that ?G is an instance of grocery and ?F spatially contains ?G.\n"}
+{"prompt":"The wardrobe contains clothes. ->","completion":" If ?W is an instance of wardrobe, then there exists ?C such that ?C is an instance of clothing and ?W spatially contains ?C.\n"}
+{"prompt":"The drawer contains a document. ->","completion":" If ?D is an instance of drawer, then there exists ?Dc such that ?Dc is an instance of document and ?D spatially contains ?Dc.\n"}
+{"prompt":"The trunk contains luggage. ->","completion":" If ?T is an instance of trunk, then there exists ?L such that ?L is an instance of luggage and ?T spatially contains ?L.\n"}
+{"prompt":"The pocket contains a key. ->","completion":" If ?P is an instance of pocket, then there exists ?K such that ?K is an instance of key and ?P spatially contains ?K.\n"}
+{"prompt":"The shelf contains a book. ->","completion":" If ?S is an instance of shelf, then there exists ?B such that ?B is an instance of book and ?S spatially contains ?B.\n"}
+{"prompt":"The drawer contains a sock. ->","completion":" If ?D is an instance of drawer, then there exists ?S such that ?S is an instance of sock and ?D spatially contains ?S.\n"}
+{"prompt":"The bag contains a laptop. ->","completion":" If ?B is an instance of bag, then there exists ?L such that ?L is an instance of laptop and ?B spatially contains ?L.\n"}
+{"prompt":"The cupboard contains a plate. ->","completion":" If ?C is an instance of cupboard, then there exists ?P such that ?P is an instance of plate and ?C spatially contains ?P.\n"}
+{"prompt":"The fridge contains a beverage. ->","completion":" If ?F is an instance of fridge, then there exists ?Bv such that ?Bv is an instance of beverage and ?F spatially contains ?Bv.\n"}
+{"prompt":"The wardrobe contains a shirt. ->","completion":" If ?W is an instance of wardrobe, then there exists ?S such that ?S is an instance of shirt and ?W spatially contains ?S.\n"}
+{"prompt":"The drawer contains a pen. ->","completion":" If ?D is an instance of drawer, then there exists ?Pn such that ?Pn is an instance of pen and ?D spatially contains ?Pn.\n"}
+{"prompt":"The box contains a gift. ->","completion":" If ?B is an instance of box, then there exists ?G such that ?G is an instance of gift and ?B spatially contains ?G.\n"}
+{"prompt":"The trunk contains a suitcase. ->","completion":" If ?T is an instance of trunk, then there exists ?S such that ?S is an instance of suitcase and ?T spatially contains ?S.\n"}
+{"prompt":"The pocket contains a wallet. ->","completion":" If ?P is an instance of pocket, then there exists ?Wl such that ?Wl is an instance of wallet and ?P spatially contains ?Wl.\n"}
+{"prompt":"Cars contain engines. ->","completion":" If ?C is an instance of car, then there exists ?E such that ?E is an instance of engine and ?E is part of ?C.\n"}
+{"prompt":"Computers contain motherboards. ->","completion":" If ?C is an instance of computer, then there exists ?M such that ?M is an instance of motherboard and ?M is part of ?C.\n"}
+{"prompt":"Watches contain mechanisms. ->","completion":" If ?W is an instance of watch, then there exists ?M such that ?M is an instance of mechanism and ?M is part of ?W.\n"}
+{"prompt":"Houses contain rooms. ->","completion":" If ?H is an instance of house, then there exists ?R such that ?R is an instance of room and ?R is part of ?H.\n"}
+{"prompt":"Bicycles contain wheels. ->","completion":" If ?B is an instance of bicycle, then there exists ?W such that ?W is an instance of wheels and ?W is part of ?B.\n"}
+{"prompt":"Cakes contain layers. ->","completion":" If ?C is an instance of cake, then there exists ?L such that ?L is an instance of layers and ?L is part of ?C.\n"}
+{"prompt":"Trees contain branches. ->","completion":" If ?T is an instance of tree, then there exists ?B such that ?B is an instance of branches and ?B is part of ?T.\n"}
+{"prompt":"Cameras contain lenses. ->","completion":" If ?C is an instance of camera, then there exists ?L such that ?L is an instance of lens and ?L is part of ?C.\n"}
+{"prompt":"Necklaces contain pendants. ->","completion":" If ?N is an instance of necklace, then there exists ?P such that ?P is an instance of pendant and ?P is part of ?N.\n"}
+{"prompt":"Cars contain seats. ->","completion":" If ?C is an instance of car, then there exists ?S such that ?S is an instance of seat and ?S is part of ?C.\n"}
+{"prompt":"The phone contains a battery. ->","completion":" If ?P is an instance of phone, then there exists ?B such that ?B is an instance of battery and ?B is part of ?P.\n"}
+{"prompt":"The house contains a roof. ->","completion":" If ?H is an instance of house, then there exists ?R such that ?R is an instance of roof and ?R is part of ?H.\n"}
+{"prompt":"The clock contains a mechanism. ->","completion":" If ?C is an instance of clock, then there exists ?M such that ?M is an instance of mechanism and ?M is part of ?C.\n"}
+{"prompt":"The guitar contains strings. ->","completion":" If ?G is an instance of guitar, then there exists ?S such that ?S is an instance of strings and ?S is part of ?G.\n"}
+{"prompt":"The watch contains a dial. ->","completion":" If ?W is an instance of watch, then there exists ?D such that ?D is an instance of dial and ?D is part of ?W.\n"}
+{"prompt":"The chair contains a backrest. ->","completion":" If ?C is an instance of chair, then there exists ?B such that ?B is an instance of backrest and ?B is part of ?C.\n"}
+{"prompt":"The vase contains flowers. ->","completion":" If ?V is an instance of vase, then there exists ?F such that ?F is an instance of flowers and ?F is part of ?V.\n"}
+{"prompt":"The book contains pages. ->","completion":" If ?B is an instance of book, then there exists ?P such that ?P is an instance of pages and ?P is part of ?B.\n"}
+{"prompt":"The suitcase contains a handle. ->","completion":" If ?S is an instance of suitcase, then there exists ?H such that ?H is an instance of handle and ?H is part of ?S.\n"}
+{"prompt":"The lamp contains a bulb. ->","completion":" If ?L is an instance of lamp, then there exists ?B such that ?B is an instance of bulb and ?B is part of ?L.\n"}
+{"prompt":"The phone has a screen. ->","completion":" If ?P is an instance of phone, then there exists ?S such that ?S is an instance of screen and ?S is part of ?P.\n"}
+{"prompt":"The building has windows. ->","completion":" If ?B is an instance of building, then there exists ?W such that ?W is an instance of window and ?W is part of ?B.\n"}
+{"prompt":"The car contains an engine. ->","completion":" If ?C is an instance of car, then there exists ?E such that ?E is an instance of engine and ?E is part of ?C.\n"}
+{"prompt":"The watch has a dial. ->","completion":" If ?W is an instance of watch, then there exists ?D such that ?D is an instance of dial and ?D is part of ?W.\n"}
+{"prompt":"The computer has a motherboard. ->","completion":" If ?C is an instance of computer, then there exists ?M such that ?M is an instance of motherboard and ?M is part of ?C.\n"}
+{"prompt":"The pen has ink. ->","completion":" If ?P is an instance of pen, then there exists ?I such that ?I is an instance of ink and ?I is part of ?P.\n"}
+{"prompt":"The camera has a lens. ->","completion":" If ?C is an instance of camera, then there exists ?L such that ?L is an instance of lens and ?L is part of ?C.\n"}
+{"prompt":"The piano contains keys. ->","completion":" If ?P is an instance of piano, then there exists ?K such that ?K is an instance of keys and ?K is part of ?P.\n"}
+{"prompt":"The bike has pedals. ->","completion":" If ?B is an instance of bike, then there exists ?P such that ?P is an instance of pedals and ?P is part of ?B.\n"}
+{"prompt":"The refrigerator has shelves. ->","completion":" If ?R is an instance of refrigerator, then there exists ?S such that ?S is an instance of shelves and ?S is part of ?R.\n"}
+{"prompt":"The computer contains a processor, a hard drive, and a monitor. ->","completion":" If ?C is an instance of computer, then there exist ?P, ?H, and ?M such that ?P is an instance of processor, ?H is an instance of hard drive, ?M is an instance of monitor and ?P, ?H, and ?M are parts of ?C.\n"}
+{"prompt":"The car contains an engine, wheels, and a steering wheel. ->","completion":" If ?C is an instance of car, then there exist ?E, ?W, and ?S such that ?E is an instance of engine, ?W is an instance of wheel, ?S is an instance of steering wheel and ?E, ?W, and ?S are parts of ?C.\n"}
+{"prompt":"The bicycle contains pedals, a saddle, and handlebars. ->","completion":" If ?B is an instance of bicycle, then there exist ?P, ?S, and ?H such that ?P is an instance of pedal, ?S is an instance of saddle, ?H is an instance of handlebar and ?P, ?S, and ?H are parts of ?B.\n"}
+{"prompt":"The pizza contains dough, tomato sauce, and cheese. ->","completion":" If ?P is an instance of pizza, then there exist ?D, ?T, and ?C such that ?D is an instance of dough, ?T is an instance of tomato sauce, ?C is an instance of cheese and ?D, ?T, and ?C are parts of ?P.\n"}
+{"prompt":"The house contains a kitchen, a bathroom, and a living room. ->","completion":" If ?H is an instance of house, then there exist ?K, ?B, and ?L such that ?K is an instance of kitchen, ?B is an instance of bathroom, ?L is an instance of living room and ?K, ?B, and ?L are parts of ?H.\n"}
+{"prompt":"The book contains a cover, pages, and a spine. ->","completion":" If ?B is an instance of book, then there exist ?C, ?P, and ?S such that ?C is an instance of cover, ?P is an instance of page, ?S is an instance of spine and ?C, ?P, and ?S are parts of ?B.\n"}
+{"prompt":"The tree contains a trunk, branches, and leaves. ->","completion":" If ?T is an instance of tree, then there exist ?Tr, ?B, and ?L such that ?Tr is an instance of trunk, ?B is an instance of branch, ?L is an instance of leaf and ?Tr, ?B, and ?L are parts of ?T.\n"}
+{"prompt":"The human body contains a heart, lungs, and a brain. ->","completion":" If ?H is an instance of human body, then there exist ?He, ?L, and ?B such that ?He is an instance of heart, ?L is an instance of lung, ?B is an instance of brain and ?He, ?L, and ?B are parts of ?H.\n"}
+{"prompt":"The bird contains a beak, feathers, and wings. ->","completion":" If ?B is an instance of bird, then there exist ?Be, ?F, and ?W such that ?Be is an instance of beak, ?F is an instance of feather, ?W is an instance of wing and ?Be, ?F, and ?W are parts of ?B.\n"}
+{"prompt":"The cell phone contains a screen, buttons, and a battery. ->","completion":" If ?C is an instance of cell phone, then there exist ?S, ?Bu, and ?Ba such that ?S is an instance of screen, ?Bu is an instance of button, ?Ba is an instance of battery and ?S, ?Bu, and ?Ba are parts of ?C.\n"}
+{"prompt":"Cars and motorcycles both have wheels. ->","completion":" If ?C is an instance of car and ?M is an instance of motorcycle, then there exists ?W such that ?W is an instance of wheel and ?W is part of both ?C and ?M.\n"}
+{"prompt":"Books and magazines both contain pages. ->","completion":" If ?B is an instance of book and ?M is an instance of magazine, then there exists ?P such that ?P is an instance of page and ?P is part of both ?B and ?M.\n"}
+{"prompt":"Houses and apartments both have doors. ->","completion":" If ?H is an instance of house and ?A is an instance of apartment, then there exists ?D such that ?D is an instance of door and ?D is part of both ?H and ?A.\n"}
+{"prompt":"Smartphones and tablets both have screens. ->","completion":" If ?S is an instance of smartphone and ?T is an instance of tablet, then there exists ?Sc such that ?Sc is an instance of screen and ?Sc is part of both ?S and ?T.\n"}
+{"prompt":"Shirts and jackets both have buttons. ->","completion":" If ?Sh is an instance of shirt and ?J is an instance of jacket, then there exists ?B such that ?B is an instance of button and ?B is part of both ?Sh and ?J.\n"}
+{"prompt":"Desks and tables both have legs. ->","completion":" If ?D is an instance of desk and ?T is an instance of table, then there exists ?L such that ?L is an instance of leg and ?L is part of both ?D and ?T.\n"}
+{"prompt":"Fruits and vegetables both contain vitamins. ->","completion":" If ?F is an instance of fruit and ?V is an instance of vegetable, then there exists ?Vi such that ?Vi is an instance of vitamin and ?Vi is part of both ?F and ?V.\n"}
+{"prompt":"Pens and pencils both have a point. ->","completion":" If ?Pe is an instance of pen and ?Pi is an instance of pencil, then there exists ?Po such that ?Po is an instance of point and ?Po is part of both ?Pe and ?Pi.\n"}
+{"prompt":"Birds and airplanes both have wings. ->","completion":" If ?B is an instance of bird and ?A is an instance of airplane, then there exists ?W such that ?W is an instance of wing and ?W is part of both ?B and ?A.\n"}
+{"prompt":"Trees and flowers both have roots. ->","completion":" If ?T is an instance of tree and ?F is an instance of flower, then there exists ?R such that ?R is an instance of root and ?R is part of both ?T and ?F.\n"}
+{"prompt":"Teachers educate students ->","completion":" Exists ?T, ?E, ?S such that ?T is an instance of teacher and ?E is an instance of education and ?S is an instance of student and ?T is the agent of ?E and ?S is the patient of ?E\n"}
+{"prompt":"Doctors treat patients ->","completion":" Exists ?D, ?T, ?P such that ?D is an instance of doctor and ?T is an instance of treating and ?P is an instance of patient and ?D is the agent of ?T and ?P is the patient of ?T\n"}
+{"prompt":"Artists create artworks ->","completion":" Exists ?A, ?C, ?W such that ?A is an instance of artist and ?C is an instance of creating and ?W is an instance of artwork and ?A is the agent of ?C and ?W is the patient of ?C\n"}
+{"prompt":"Cats chase mice ->","completion":" Exists ?C, ?H, ?M such that ?C is an instance of cat and ?H is an instance of chasing and ?M is an instance of mouse and ?C is the agent of ?H and ?M is the patient of ?H\n"}
+{"prompt":"Chefs cook food ->","completion":" Exists ?C, ?K, ?F such that ?C is an instance of chef and ?K is an instance of cooking and ?F is an instance of food and ?C is the agent of ?K and ?F is the patient of ?K\n"}
+{"prompt":"Authors write books ->","completion":" Exists ?A, ?W, ?B such that ?A is an instance of author and ?W is an instance of writing and ?B is an instance of book and ?A is the agent of ?W and ?B is the patient of ?W\n"}
+{"prompt":"Farmers grow crops ->","completion":" Exists ?F, ?G, ?C such that ?F is an instance of farmer and ?G is an instance of growing and ?C is an instance of crop and ?F is the agent of ?G and ?C is the patient of ?G\n"}
+{"prompt":"Trucks transport goods ->","completion":" Exists ?T, ?R, ?G such that ?T is an instance of truck and ?R is an instance of transporting and ?G is an instance of goods and ?T is the agent of ?R and ?G is the patient of ?R\n"}
+{"prompt":"Musicians play instruments ->","completion":" Exists ?M, ?P, ?I such that ?M is an instance of musician and ?P is an instance of playing and ?I is an instance of instrument and ?M is the agent of ?P and ?I is the patient of ?P\n"}
+{"prompt":"Carpenters build houses ->","completion":" Exists ?C, ?B, ?H such that ?C is an instance of carpenter and ?B is an instance of building and ?H is an instance of house and ?C is the agent of ?B and ?H is the patient of ?B\n"}
+{"prompt":"Researchers study subjects ->","completion":" Exists ?R, ?S-1, ?S-2 such that ?R is an instance of researcher and ?S-1 is an instance of studying and ?S-2 is an instance of subject and ?R is the agent of ?S-1 and ?S-2 is the patient of ?S-1\n"}
+{"prompt":"Singers sing songs ->","completion":" Exists ?S-1, ?S-2, ?S-3 such that ?S-1 is an instance of singer and ?S-2 is an instance of singing and ?S-3 is an instance of song and ?S-1 is the agent of ?S-2 and ?S-3 is the patient of ?S-2\n"}
+{"prompt":"Dogs chase cats ->","completion":" Exists ?D, ?C-1, ?C-2 such that ?D is an instance of dog and ?C-1 is an instance of chasing and ?C-2 is an instance of cat and ?D is the agent of ?C-1 and ?C-2 is the patient of ?C-1\n"}
+{"prompt":"Actors perform plays ->","completion":" Exists ?A, ?P-1, ?P-2 such that ?A is an instance of actor and ?P-1 is an instance of performing and ?P-2 is an instance of play and ?A is the agent of ?P-1 and ?P-2 is the patient of ?P-1\n"}
+{"prompt":"Birds eat worms ->","completion":" Exists ?B, ?E, ?W such that ?B is an instance of bird and ?E is an instance of eating and ?W is an instance of worm and ?B is the agent of ?E and ?W is the patient of ?E\n"}
+{"prompt":"Engineers design machines ->","completion":" Exists ?E, ?D, ?M such that ?E is an instance of engineer and ?D is an instance of designing and ?M is an instance of machine and ?E is the agent of ?D and ?M is the patient of ?D\n"}
+{"prompt":"Coders write software ->","completion":" Exists ?C, ?W, ?S such that ?C is an instance of coder and ?W is an instance of writing and ?S is an instance of software and ?C is the agent of ?W and ?S is the patient of ?W\n"}
+{"prompt":"Animators create characters ->","completion":" Exists ?A, ?C-1, ?C-2 such that ?A is an instance of animator and ?C-1 is an instance of creating and ?C-2 is an instance of character and ?A is the agent of ?C-1 and ?C-2 is the patient of ?C-1\n"}
+{"prompt":"Fishermen catch fish ->","completion":" Exists ?F-1, ?C, ?F-2 such that ?F-1 is an instance of fisherman and ?C is an instance of catching and ?F-2 is an instance of fish and ?F-1 is the agent of ?C and ?F-2 is the patient of ?C\n"}
+{"prompt":"Gardeners plant trees ->","completion":" Exists ?G, ?P, ?T such that ?G is an instance of gardener and ?P is an instance of planting and ?T is an instance of tree and ?G is the agent of ?P and ?T is the patient of ?P\n"}
+{"prompt":"Scientists discover elements ->","completion":" Exists ?S, ?D, ?E such that ?S is an instance of scientist and ?D is an instance of discovering and ?E is an instance of element and ?S is the agent of ?D and ?E is the patient of ?D\n"}
+{"prompt":"Instructors teach students ->","completion":" Exists ?I, ?T, ?S such that ?I is an instance of instructor and ?T is an instance of teaching and ?S is an instance of student and ?I is the agent of ?T and ?S is the patient of ?T\n"}
+{"prompt":"Bakers bake bread ->","completion":" Exists ?B-1, ?B-2, ?B-3 such that ?B-1 is an instance of baker and ?B-2 is an instance of baking and ?B-3 is an instance of bread and ?B-1 is the agent of ?B-2 and ?B-3 is the patient of ?B-2\n"}
+{"prompt":"Painters paint pictures ->","completion":" Exists ?P-1, ?P-2, ?P-3 such that ?P-1 is an instance of painter and ?P-2 is an instance of painting and ?P-3 is an instance of picture and ?P-1 is the agent of ?P-2 and ?P-3 is the patient of ?P-2\n"}
+{"prompt":"Chefs cook meals ->","completion":" Exists ?C-1, ?C-2, ?M such that ?C-1 is an instance of chef and ?C-2 is an instance of cooking and ?M is an instance of meal and ?C-1 is the agent of ?C-2 and ?M is the patient of ?C-2\n"}
+{"prompt":"Lions hunt zebras ->","completion":" Exists ?L, ?H, ?Z such that ?L is an instance of lion and ?H is an instance of hunting and ?Z is an instance of zebra and ?L is the agent of ?H and ?Z is the patient of ?H\n"}
+{"prompt":"Machines process data ->","completion":" Exists ?M, ?P, ?D such that ?M is an instance of machine and ?P is an instance of processing and ?D is an instance of data and ?M is the agent of ?P and ?D is the patient of ?P\n"}
+{"prompt":"Athletes play sports ->","completion":" Exists ?A, ?P, ?S such that ?A is an instance of athlete and ?P is an instance of playing and ?S is an instance of sport and ?A is the agent of ?P and ?S is the patient of ?P\n"}
+{"prompt":"Photographers take photos ->","completion":" Exists ?P-1, ?T, ?P-2 such that ?P-1 is an instance of photographer and ?T is an instance of taking and ?P-2 is an instance of photo and ?P-1 is the agent of ?T and ?P-2 is the patient of ?T\n"}
+{"prompt":"Drivers drive cars ->","completion":" Exists ?D, ?D-1, ?C such that ?D is an instance of driver and ?D-1 is an instance of driving and ?C is an instance of car and ?D is the agent of ?D-1 and ?C is the patient of ?D-1\n"}
+{"prompt":"Printers print documents ->","completion":" Exists ?P-1, ?P-2, ?D such that ?P-1 is an instance of printer and ?P-2 is an instance of printing and ?D is an instance of document and ?P-1 is the agent of ?P-2 and ?D is the patient of ?P-2\n"}
+{"prompt":"Teachers grade papers ->","completion":" Exists ?T, ?G, ?P such that ?T is an instance of teacher and ?G is an instance of grading and ?P is an instance of paper and ?T is the agent of ?G and ?P is the patient of ?G\n"}
+{"prompt":"Spiders spin webs ->","completion":" Exists ?S-1, ?S-2, ?W such that ?S-1 is an instance of spider and ?S-2 is an instance of spinning and ?W is an instance of web and ?S-1 is the agent of ?S-2 and ?W is the patient of ?S-2\n"}
+{"prompt":"Doctors prescribe medicines ->","completion":" Exists ?D, ?P, ?M such that ?D is an instance of doctor and ?P is an instance of prescribing and ?M is an instance of medicine and ?D is the agent of ?P and ?M is the patient of ?P\n"}
+{"prompt":"Birds build nests ->","completion":" Exists ?B-1, ?B-2, ?N such that ?B-1 is an instance of bird and ?B-2 is an instance of building and ?N is an instance of nest and ?B-1 is the agent of ?B-2 and ?N is the patient of ?B-2\n"}
+{"prompt":"Artists sketch models ->","completion":" Exists ?A, ?S, ?M such that ?A is an instance of artist and ?S is an instance of sketching and ?M is an instance of model and ?A is the agent of ?S and ?M is the patient of ?S\n"}
+{"prompt":"Musicians compose songs ->","completion":" Exists ?M-1, ?C, ?S such that ?M-1 is an instance of musician and ?C is an instance of composing and ?S is an instance of song and ?M-1 is the agent of ?C and ?S is the patient of ?C\n"}
+{"prompt":"Bees make honey ->","completion":" Exists ?B-1, ?M, ?H such that ?B-1 is an instance of bee and ?M is an instance of making and ?H is an instance of honey and ?B-1 is the agent of ?M and ?H is the patient of ?M\n"}
+{"prompt":"Rivers erode rocks ->","completion":" Exists ?R-1, ?E, ?R-2 such that ?R-1 is an instance of river and ?E is an instance of eroding and ?R-2 is an instance of rock and ?R-1 is the agent of ?E and ?R-2 is the patient of ?E\n"}
+{"prompt":"Masons lay bricks ->","completion":" Exists ?M, ?L, ?B such that ?M is an instance of mason and ?L is an instance of laying and ?B is an instance of brick and ?M is the agent of ?L and ?B is the patient of ?L\n"}
+{"prompt":"Authors write books ->","completion":" Exists ?A, ?W, ?B such that ?A is an instance of author and ?W is an instance of writing and ?B is an instance of book and ?A is the agent of ?W and ?B is the patient of ?W\n"}
+{"prompt":"Jewelers craft jewelry ->","completion":" Exists ?J-1, ?C, ?J-2 such that ?J-1 is an instance of jeweler and ?C is an instance of crafting and ?J-2 is an instance of jewelry and ?J-1 is the agent of ?C and ?J-2 is the patient of ?C\n"}
+{"prompt":"Snakes swallow prey ->","completion":" Exists ?S, ?S-1, ?P such that ?S is an instance of snake and ?S-1 is an instance of swallowing and ?P is an instance of prey and ?S is the agent of ?S-1 and ?P is the patient of ?S-1\n"}
+{"prompt":"Trees produce oxygen ->","completion":" Exists ?T, ?P, ?O such that ?T is an instance of tree and ?P is an instance of producing and ?O is an instance of oxygen and ?T is the agent of ?P and ?O is the patient of ?P\n"}
+{"prompt":"Hammers hit nails ->","completion":" Exists ?H, ?H-1, ?N such that ?H is an instance of hammer and ?H-1 is an instance of hitting and ?N is an instance of nail and ?H is the agent of ?H-1 and ?N is the patient of ?H-1\n"}
+{"prompt":"Farmers harvest crops ->","completion":" Exists ?F, ?H, ?C such that ?F is an instance of farmer and ?H is an instance of harvesting and ?C is an instance of crop and ?F is the agent of ?H and ?C is the patient of ?H\n"}
+{"prompt":"Sun heats earth ->","completion":" Exists ?S, ?H, ?E such that ?S is an instance of sun and ?H is an instance of heating and ?E is an instance of earth and ?S is the agent of ?H and ?E is the patient of ?H\n"}
+{"prompt":"Rain waters plants ->","completion":" Exists ?R, ?W, ?P such that ?R is an instance of rain and ?W is an instance of watering and ?P is an instance of plant and ?R is the agent of ?W and ?P is the patient of ?W\n"}
+{"prompt":"Bats catch insects ->","completion":" Exists ?B, ?C, ?I such that ?B is an instance of bat and ?C is an instance of catching and ?I is an instance of insect and ?B is the agent of ?C and ?I is the patient of ?C\n"}
+{"prompt":"Volcanoes erupt lava ->","completion":" Exists ?V, ?E, ?L such that ?V is an instance of volcano and ?E is an instance of erupting and ?L is an instance of lava and ?V is the agent of ?E and ?L is the patient of ?E\n"}
+{"prompt":"Winds move clouds ->","completion":" Exists ?W, ?M, ?C such that ?W is an instance of wind and ?M is an instance of moving and ?C is an instance of cloud and ?W is the agent of ?M and ?C is the patient of ?M\n"}
+{"prompt":"Lions hunt zebras ->","completion":" Exists ?L, ?H, ?Z such that ?L is an instance of lion and ?H is an instance of hunting and ?Z is an instance of zebra and ?L is the agent of ?H and ?Z is the patient of ?H\n"}
+{"prompt":"Cameras capture images ->","completion":" Exists ?C-1, ?C-2, ?I such that ?C-1 is an instance of camera and ?C-2 is an instance of capturing and ?I is an instance of image and ?C-1 is the agent of ?C-2 and ?I is the patient of ?C-2\n"}
+{"prompt":"People grow plants ->","completion":" Exists ?P1, ?A, ?P2 such that ?P1 is an instance of person and ?A is an instance of growing and ?P2 is an instance of plant and ?P1 is the agent of ?A and ?P2 is the patient of ?A.\n"}
+{"prompt":"Architects design buildings ->","completion":" Exists ?A, ?D, ?B such that ?A is an instance of architect and ?D is an instance of designing and ?B is an instance of building and ?A is the agent of ?D and ?B is the patient of ?D.\n"}
+{"prompt":"Bees pollinate flowers ->","completion":" Exists ?B, ?P, ?F such that ?B is an instance of bee and ?P is an instance of pollinating and ?F is an instance of flower and ?B is the agent of ?P and ?F is the patient of ?P.\n"}
+{"prompt":"Writers create novels ->","completion":" Exists ?W, ?C, ?N such that ?W is an instance of writer and ?C is an instance of creating and ?N is an instance of novel and ?W is the agent of ?C and ?N is the patient of ?C.\n"}
+{"prompt":"Engineers develop software ->","completion":" Exists ?E, ?D, ?S such that ?E is an instance of engineer and ?D is an instance of developing and ?S is an instance of software and ?E is the agent of ?D and ?S is the patient of ?D.\n"}
+{"prompt":"Artists paint portraits ->","completion":" Exists ?A, ?P1, ?P2 such that ?A is an instance of artist and ?P1 is an instance of painting and ?P2 is an instance of portrait and ?A is the agent of ?P1 and ?P2 is the patient of ?P1.\n"}
+{"prompt":"Researchers study phenomena ->","completion":" Exists ?R, ?S, ?P such that ?R is an instance of researcher and ?S is an instance of studying and ?P is an instance of phenomenon and ?R is the agent of ?S and ?P is the patient of ?S.\n"}
+{"prompt":"Chefs bake bread ->","completion":" Exists ?C, ?B1, ?B2 such that ?C is an instance of chef and ?B1 is an instance of baking and ?B2 is an instance of bread and ?C is the agent of ?B1 and ?B2 is the patient of ?B1.\n"}
+{"prompt":"Scientists discover planets ->","completion":" Exists ?S, ?D, ?P such that ?S is an instance of scientist and ?D is an instance of discovering and ?P is an instance of planet and ?S is the agent of ?D and ?P is the patient of ?D.\n"}
+{"prompt":"Carpenters build furniture ->","completion":" Exists ?C, ?B, ?F such that ?C is an instance of carpenter and ?B is an instance of building and ?F is an instance of furniture and ?C is the agent of ?B and ?F is the patient of ?B.\n"}
+{"prompt":"Detectives solve cases ->","completion":" Exists ?D, ?S, ?C such that ?D is an instance of detective and ?S is an instance of solving and ?C is an instance of case and ?D is the agent of ?S and ?C is the patient of ?S.\n"}
+{"prompt":"Farmers plant seeds ->","completion":" Exists ?F, ?P, ?S such that ?F is an instance of farmer and ?P is an instance of planting and ?S is an instance of seed and ?F is the agent of ?P and ?S is the patient of ?P.\n"}
+{"prompt":"Singers perform songs ->","completion":" Exists ?S1, ?P, ?S2 such that ?S1 is an instance of singer and ?P is an instance of performing and ?S2 is an instance of song and ?S1 is the agent of ?P and ?S2 is the patient of ?P.\n"}
+{"prompt":"Writers publish books ->","completion":" Exists ?W, ?P, ?B such that ?W is an instance of writer and ?P is an instance of publishing and ?B is an instance of book and ?W is the agent of ?P and ?B is the patient of ?P.\n"}
+{"prompt":"Mechanics fix cars ->","completion":" Exists ?M, ?F, ?C such that ?M is an instance of mechanic and ?F is an instance of fixing and ?C is an instance of car and ?M is the agent of ?F and ?C is the patient of ?F.\n"}
+{"prompt":"Painters color walls ->","completion":" Exists ?P, ?C, ?W such that ?P is an instance of painter and ?C is an instance of coloring and ?W is an instance of wall and ?P is the agent of ?C and ?W is the patient of ?C.\n"}
+{"prompt":"Programmers code applications ->","completion":" Exists ?P, ?C, ?A such that ?P is an instance of programmer and ?C is an instance of coding and ?A is an instance of application and ?P is the agent of ?C and ?A is the patient of ?C.\n"}
+{"prompt":"All plants absorb carbon dioxide ->","completion":" If ?P is an instance of plant, then there exists ?A such that ?A is an instance of absorbing, and ?P is the agent of ?A and carbon dioxide is the patient of ?A.\n"}
+{"prompt":"All bees pollinate flowers ->","completion":" If ?B is an instance of bee, then there exists ?P such that ?P is an instance of pollinating, and ?B is the agent of ?P and flower is the patient of ?P.\n"}
+{"prompt":"All engines consume oil ->","completion":" If ?E is an instance of engine, then there exists ?C such that ?C is an instance of consuming, and ?E is the agent of ?C and oil is the patient of ?C.\n"}
+{"prompt":"All rivers flow to the sea ->","completion":" If ?R is an instance of river, then there exists ?F such that ?F is an instance of flowing, and ?R is the agent of ?F and sea is the patient of ?F.\n"}
+{"prompt":"All teachers educate students ->","completion":" If ?T is an instance of teacher, then there exists ?E such that ?E is an instance of educating, and ?T is the agent of ?E and student is the patient of ?E.\n"}
+{"prompt":"All cows produce milk ->","completion":" If ?C is an instance of cow, then there exists ?P such that ?P is an instance of producing, and ?C is the agent of ?P and milk is the patient of ?P.\n"}
+{"prompt":"All windmills generate electricity ->","completion":" If ?W is an instance of windmill, then there exists ?G such that ?G is an instance of generating, and ?W is the agent of ?G and electricity is the patient of ?G.\n"}
+{"prompt":"All bakers bake bread ->","completion":" If ?B is an instance of baker, then there exists ?Bk such that ?Bk is an instance of baking, and ?B is the agent of ?Bk and bread is the patient of ?Bk.\n"}
+{"prompt":"All photographers take photos ->","completion":" If ?P is an instance of photographer, then there exists ?T such that ?T is an instance of taking, and ?P is the agent of ?T and photo is the patient of ?T.\n"}
+{"prompt":"All fire burns wood ->","completion":" If ?F is an instance of fire, then there exists ?B such that ?B is an instance of burning, and ?F is the agent of ?B and wood is the patient of ?B.\n"}
+{"prompt":"All wave crashes against the rock ->","completion":" If ?W is an instance of wave, then there exists ?C such that ?C is an instance of crashing, and ?W is the agent of ?C and the rock is the patient of ?C.\n"}
+{"prompt":"All raindrop wets the ground ->","completion":" If ?R is an instance of raindrop, then there exists ?W such that ?W is an instance of wetting, and ?R is the agent of ?W and the ground is the patient of ?W.\n"}
+{"prompt":"All time changes season ->","completion":" If ?T is an instance of time, then there exists ?C such that ?C is an instance of changing, and ?T is the agent of ?C and season is the patient of ?C.\n"}
+{"prompt":"All wind erodes rock ->","completion":" If ?W is an instance of wind, then there exists ?E such that ?E is an instance of eroding, and ?W is the agent of ?E and rock is the patient of ?E.\n"}
+{"prompt":"All fire melts metal ->","completion":" If ?F is an instance of fire, then there exists ?M such that ?M is an instance of melting, and ?F is the agent of ?M and metal is the patient of ?M.\n"}
+{"prompt":"All sunlight nourishes plant ->","completion":" If ?S is an instance of sunlight, then there exists ?N such that ?N is an instance of nourishing, and ?S is the agent of ?N and plant is the patient of ?N.\n"}
+{"prompt":"All exercise strengthens muscle ->","completion":" If ?E is an instance of exercise, then there exists ?S such that ?S is an instance of strengthening, and ?E is the agent of ?S and muscle is the patient of ?S.\n"}
+{"prompt":"All fire burns fuel ->","completion":" If ?F is an instance of fire, then there exists ?B such that ?B is an instance of burning, and ?F is the agent of ?B and fuel is the patient of ?B.\n"}
+{"prompt":"All wind dries clothes ->","completion":" If ?W is an instance of wind, then there exists ?D such that ?D is an instance of drying, and ?W is the agent of ?D and clothes is the patient of ?D.\n"}
+{"prompt":"All rain waters plants ->","completion":" If ?R is an instance of rain, then there exists ?W such that ?W is an instance of watering, and ?R is the agent of ?W and plants is the patient of ?W.\n"}
+{"prompt":"Some athletes break records. ->","completion":" Exists ?A, ?B such that ?A is an instance of athlete, ?B is an instance of breaking, and ?A is the agent of ?B and Record is the patient of ?B.\n"}
+{"prompt":"Some comedians make people laugh. ->","completion":" Exists ?C, ?M such that ?C is an instance of comedian, ?M is an instance of making, and ?C is the agent of ?M and Person is the patient of ?M.\n"}
+{"prompt":"Some movies inspire audiences. ->","completion":" Exists ?M, ?I such that ?M is an instance of movie, ?I is an instance of inspiring, and ?M is the agent of ?I and Audience is the patient of ?I.\n"}
+{"prompt":"Some artists create masterpieces. ->","completion":" Exists ?A, ?C such that ?A is an instance of artist, ?C is an instance of creating, and ?A is the agent of ?C and Masterpiece is the patient of ?C.\n"}
+{"prompt":"Some musicians play instruments. ->","completion":" Exists ?M, ?P such that ?M is an instance of musician, ?P is an instance of playing, and ?M is the agent of ?P and Instrument is the patient of ?P.\n"}
+{"prompt":"Some students solve difficult problems. ->","completion":" Exists ?S, ?P such that ?S is an instance of student, ?P is an instance of solving, and ?S is the agent of ?P and difficult problem is the patient of ?P.\n"}
+{"prompt":"Some doctors treat patients. ->","completion":" Exists ?D, ?T such that ?D is an instance of doctor, ?T is an instance of treating, and ?D is the agent of ?T and patient is the patient of ?T.\n"}
+{"prompt":"Some chefs cook delicious meals. ->","completion":" Exists ?C, ?M such that ?C is an instance of chef, ?M is an instance of cooking, and ?C is the agent of ?M and delicious meal is the patient of ?M.\n"}
+{"prompt":"Some writers create captivating stories. ->","completion":" Exists ?W, ?C such that ?W is an instance of writer, ?C is an instance of creating, and ?W is the agent of ?C and captivating story is the patient of ?C.\n"}
+{"prompt":"Some teachers inspire students. ->","completion":" Exists ?T, ?I such that ?T is an instance of teacher, ?I is an instance of inspiring, and ?T is the agent of ?I and student is the patient of ?I.\n"}
+{"prompt":"Some musicians compose beautiful melodies. ->","completion":" Exists ?M, ?C such that ?M is an instance of musician, ?C is an instance of composing, and ?M is the agent of ?C and beautiful melody is the patient of ?C.\n"}
+{"prompt":"Some scientists conduct experiments. ->","completion":" Exists ?S, ?C such that ?S is an instance of scientist, ?C is an instance of conducting, and ?S is the agent of ?C and experiment is the patient of ?C.\n"}
+{"prompt":"Some lawyers defend clients. ->","completion":" Exists ?L, ?D such that ?L is an instance of lawyer, ?D is an instance of defending, and ?L is the agent of ?D and client is the patient of ?D.\n"}
+{"prompt":"Some artists paint beautiful artworks. ->","completion":" Exists ?A, ?P such that ?A is an instance of artist, ?P is an instance of painting, and ?A is the agent of ?P and beautiful artwork is the patient of ?P.\n"}
+{"prompt":"Some athletes win gold medals. ->","completion":" Exists ?A, ?W such that ?A is an instance of athlete, ?W is an instance of winning, and ?A is the agent of ?W and gold medal is the patient of ?W.\n"}
+{"prompt":"Some detox diets cleanse the body. ->","completion":" Exists ?D, ?C such that ?D is an instance of detox diet, ?C is an instance of cleansing, and ?D is the agent of ?C and body is the patient of ?C.\n"}
+{"prompt":"Physical is an entity. ->","completion":" Physical is a subclass of entity\n"}
+{"prompt":"Object is physical. ->","completion":" Object is a subclass of physical\n"}
+{"prompt":"Self-connected object is an object. ->","completion":" Self-connected object is a subclass of object\n"}
+{"prompt":"Organic thing is a self-connected object. ->","completion":" Organic thing is a subclass of self-connected object\n"}
+{"prompt":"Organic object is a type of self-connected object. ->","completion":" Organic object is a subclass of self-connected object\n"}
+{"prompt":"Organism is an organic object. ->","completion":" Organism is a subclass of organic object\n"}
+{"prompt":"Animal is an organism. ->","completion":" Animal is a subclass of organism\n"}
+{"prompt":"Vertebrate is an animal. ->","completion":" Vertebrate is a subclass of animal\n"}
+{"prompt":"Warm-blooded vertebrate is a type of vertebrate. ->","completion":" Warm-blooded vertebrate is a subclass of vertebrate\n"}
+{"prompt":"Bird is a warm-blooded vertebrate. ->","completion":" Bird is a subclass of warm-blooded vertebrate\n"}
+{"prompt":"Horse is a hoofed mammal ->","completion":" Horse is a subclass of hoofed mammal\n"}
+{"prompt":"Wine is an alcoholic beverage ->","completion":" Wine is a subclass of alcoholic beverage\n"}
+{"prompt":"Alcohol is a depressant ->","completion":" Alcohol is a subclass of depressant\n"}
+{"prompt":"Alcohol is a beverage ->","completion":" Alcohol is a subclass of beverage\n"}
+{"prompt":"Ingesting is an organism process ->","completion":" Ingesting is a subclass of organism process\n"}
+{"prompt":"Diet is a plan ->","completion":" Diet is a subclass of plan\n"}
+{"prompt":"Coffee is a beverage ->","completion":" Coffee is a subclass of beverage\n"}
+{"prompt":"Pizza is a food ->","completion":" Pizza is a subclass of food\n"}
+{"prompt":"Car is a vehicle ->","completion":" Car is a subclass of vehicle\n"}
+{"prompt":"Chair is a furniture ->","completion":" Chair is a subclass of furniture\n"}
+{"prompt":"Cat is a mammal ->","completion":" Cat is a subclass of mammal\n"}
+{"prompt":"Book is a written work ->","completion":" Book is a subclass of written work\n"}
+{"prompt":"Plane is a mode of transportation ->","completion":" Plane is a subclass of mode of transportation\n"}
+{"prompt":"Cucumber is a vegetable ->","completion":" Cucumber is a subclass of vegetable\n"}
+{"prompt":"Violin is a musical instrument ->","completion":" Violin is a subclass of musical instrument\n"}
+{"prompt":"Table is a furniture ->","completion":" Table is a subclass of furniture\n"}
+{"prompt":"Cats are mammals ->","completion":" Cat is a subclass of mammal\n"}
+{"prompt":"Books are written works ->","completion":" Book is a subclass of written work\n"}
+{"prompt":"Chairs are furniture ->","completion":" Chair is a subclass of furniture\n"}
+{"prompt":"Dogs are animals ->","completion":" Dog is a subclass of animal\n"}
+{"prompt":"Apples are fruits ->","completion":" Apple is a subclass of fruit\n"}
+{"prompt":"Tables are furniture ->","completion":" Table is a subclass of furniture\n"}
+{"prompt":"Birds are animals ->","completion":" Bird is a subclass of animal\n"}
+{"prompt":"Horses are mammals ->","completion":" Horse is a subclass of mammal\n"}
+{"prompt":"Vehicles are transportation means ->","completion":" Vehicle is a subclass of transportation means\n"}
+{"prompt":"Lions are carnivorous animals ->","completion":" Lion is a subclass of carnivorous animal\n"}
+{"prompt":"Detox diet is a type of diet ->","completion":" Detox diet is a subclass of diet\n"}
+{"prompt":"Golden Retriever is a type of dog ->","completion":" Golden Retriever is a subclass of dog\n"}
+{"prompt":"Rose is a type of flower ->","completion":" Rose is a subclass of flower\n"}
+{"prompt":"Oak is a type of tree ->","completion":" Oak is a subclass of tree\n"}
+{"prompt":"Soccer is a type of sport ->","completion":" Soccer is a subclass of sport\n"}
+{"prompt":"Hummingbird is a type of bird ->","completion":" Hummingbird is a subclass of bird\n"}
+{"prompt":"Python is a type of programming language ->","completion":" Python is a subclass of programming language\n"}
+{"prompt":"SUV is a type of vehicle ->","completion":" SUV is a subclass of vehicle\n"}
+{"prompt":"Pop music is a type of music genre ->","completion":" Pop music is a subclass of music genre\n"}
+{"prompt":"Lion is a type of big cat ->","completion":" Lion is a subclass of big cat\n"}
+{"prompt":"Hiking is a type of outdoor activity ->","completion":" Hiking is a subclass of outdoor activity\n"}
+{"prompt":"Cats are types of pets ->","completion":" Cat is a subclass of pet\n"}
+{"prompt":"Roses are types of flowers ->","completion":" Rose is a subclass of flower\n"}
+{"prompt":"Lions are types of big cats ->","completion":" Lion is a subclass of big cat\n"}
+{"prompt":"Chairs are types of furniture ->","completion":" Chair is a subclass of furniture\n"}
+{"prompt":"Dogs are types of animals ->","completion":" Dog is a subclass of animal\n"}
+{"prompt":"Books are types of written works ->","completion":" Book is a subclass of written work\n"}
+{"prompt":"Tables are types of furniture ->","completion":" Table is a subclass of furniture\n"}
+{"prompt":"Birds are types of animals ->","completion":" Bird is a subclass of animal\n"}
+{"prompt":"Horses are types of mammals ->","completion":" Horse is a subclass of mammal\n"}
+{"prompt":"Cars are types of vehicles ->","completion":" Car is a subclass of vehicle\n"}
+{"prompt":"Alcohol and juice are beverages. ->","completion":" Alcoholic beverages and fruit juices are subclasses of beverage\n"}
+{"prompt":"Lions and tigers are felines. ->","completion":" Lion and tiger are subclasses of feline\n"}
+{"prompt":"Oak and maple are trees. ->","completion":" Oak and maple are subclasses of tree\n"}
+{"prompt":"Sparrows and eagles are birds. ->","completion":" Sparrow and eagle are subclasses of bird\n"}
+{"prompt":"Tulips and roses are flowers. ->","completion":" Tulip and rose are subclasses of flower\n"}
+{"prompt":"Whales and dolphins are mammals. ->","completion":" Whale and dolphin are subclasses of mammal\n"}
+{"prompt":"Frogs and lizards are reptiles. ->","completion":" Frog and lizard are subclasses of reptile\n"}
+{"prompt":"Trout and salmon are fish. ->","completion":" Trout and salmon are subclasses of fish\n"}
+{"prompt":"Cucumbers and pumpkins are vegetables. ->","completion":" Cucumber and pumpkin are subclasses of vegetable\n"}
+{"prompt":"Apples and bananas are fruits. ->","completion":" Apple and banana are subclasses of fruit\n"}
+{"prompt":"A square is a rectangle and a polygon. ->","completion":" Square is a subclass of rectangle and polygon\n"}
+{"prompt":"A rose is a flower and a plant. ->","completion":" Rose is a subclass of flower and plant\n"}
+{"prompt":"A lion is a mammal and a carnivore. ->","completion":" Lion is a subclass of mammal and carnivore\n"}
+{"prompt":"A shark is a fish and a predator. ->","completion":" Shark is a subclass of fish and predator\n"}
+{"prompt":"A violin is a musical instrument and a string instrument. ->","completion":" Violin is a subclass of musical instrument and string instrument\n"}
+{"prompt":"A frog is an amphibian and a vertebrate. ->","completion":" Frog is a subclass of amphibian and vertebrate\n"}
+{"prompt":"A robin is a bird and an animal. ->","completion":" Robin is a subclass of bird and animal\n"}
+{"prompt":"A mushroom is a fungus and an organism. ->","completion":" Mushroom is a subclass of fungus and organism\n"}
+{"prompt":"A helicopter is a vehicle and an aircraft. ->","completion":" Helicopter is a subclass of vehicle and aircraft\n"}
+{"prompt":"A pineapple is a fruit and a plant. ->","completion":" Pineapple is a subclass of fruit and plant\n"}
