@@ -11,3 +11,5 @@
 /ontology-rest/sigma/Programs
 
 /ontology-rest/lib/stanford-corenlp-4.5.4-models.jar
+
+*.env.local
