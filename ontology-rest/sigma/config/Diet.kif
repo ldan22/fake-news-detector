@@ -72,10 +72,16 @@
 (documentation OrganicFood EnglishLanguage "&%OrganicFood refers to agricultural products that are grown and processed using organic farming practices. These practices prioritize the use of natural and sustainable methods while avoiding synthetic chemicals, pesticides, genetically modified organisms (GMOs), and irradiation.")
 (termFormat EnglishLanguage OrganicFood "organic food")
 
+(instance Unhealthy BiologicalAttribute)
+(termFormat Unhealthy EnglishLanguage "unhealthy")
+(documentation Unhealthy EnglishLanguage "The state of having any DiseaseOrSyndrome.")
+
+(<=> (attribute ?X Unhealthy) (not (attribute ?X Healthy)))
+
 ;; If a food has organic attribute then it is an instance of OrganicFood
 
 (<=>
-	(and 
+	(and
 		(instance ?X Food)
 		(attribute ?X Organic))
 	(instance ?X OrganicFood))
@@ -87,50 +93,50 @@
 
 
 (=>
-	(and 
+	(and
 		(instance ?X Food)
 		(attribute ?X PesticideFree))
-	(not 
-		(exists (?P) 
-			(and (instance ?P Pesticide) 
+	(not
+		(exists (?P)
+			(and (instance ?P Pesticide)
 				(part ?P ?X)))))
 
 (=> (instance ?X OrganicFood)
 	(modalAttribute PesticideFree Likely))
 
+; Detox diets do not cleanse the blood
 
-; ;; Organic food likely has less pesticides than normal food
+(subclass DetoxFood AutonomousAgent)
+(subclass DetoxFood Food)
+(termFormat EnglishLanguage DetoxFood "detox food")
+
+(not (exists (?D ?C)
+	(and
+		(instance ?D DetoxFood)
+		(instance ?C Cleaning)
+		(agent ?C ?D)
+		(patient ?C Blood))))
+
+(not (exists (?D ?C ?B)
+  (and
+    (instance ?D DetoxFood)
+    (instance ?C Cleaning)
+    (instance ?B Blood)
+    (agent ?C ?D)
+    (patient ?C ?B))))
+
+(not (exists (?D ?C)
+	(and
+		(instance ?D DetoxFood)
+		(instance ?C Cleaning)
+		(agent ?C ?D)
+		(patient ?C Animal))))
+
+
+; Fruits and vegetables are healthy
+
+
 (=>
-    (and
-        (instance ?F1 OrganicFood)
-        (instance ?P1 Pesticide)
-        (part ?P1 ?F1)
-        (measure ?P1 (MeasureFn ?C1 Gram))
-
-        (instance ?F2 Food)
-        (not (attribute ?F2 Organic))
-        (instance ?P2 Pesticide)
-        (part ?P2 ?F2)
-        (measure ?P2 (MeasureFn ?C2 Gram)))
-
-    (modalAttribute
-        (greaterThan ?C2 ?C1) Likely))
-
-
-; Some detox diets cleanse the body
-
-(subclass DetoxDiet AutonomousAgent)
-
-(exists (?D ?C) 
-	(and 
-		(instance ?D DetoxDiet) 
-		(instance ?C Cleaning) 
-		(agent ?C ?D) 
-		(patient ?C Body)))
-
-; Fruits and vegetables are helthy
-
-(=> 
 	(instance ?X FruitOrVegetable)
 	(attribute ?X Healthy))
 
@@ -138,28 +144,191 @@
 
 (subclass AddedSugar Sugar)
 (documentation AddedSugar EnglishLanguage "&%AddedSugar is a subclass of &%Sugar. They are sugar carbohydrates (caloric sweeteners) added to food and beverages at some point before their consumption.")
-(termFormat AddedSugar "added sugar")
+(termFormat EnglishLanguage AddedSugar "added sugar")
 
 
 (subclass Obesity DiseaseOrSyndrome)
 (documentation Obesity EnglishLanguage "&%Obesity is a medical condition, sometimes considered a disease, in which excess body fat has accumulated to such an extent that it negatively affects health.")
-(termFormat AddedSugar "obesity")
+(termFormat EnglishLanguage AddedSugar "obesity")
 
-(=> 
-	(instance ?S Sugar) 
-	(exists (?C) 
-		(and 
-			(instance ?C Causing) 
-			(agent ?C ?S) 
+
+(documentation Causing EnglishLanguage "TODO")
+(subclass Causing Process)
+(termFormat EnglishLanguage Causing "causing")
+
+(=>
+	(instance ?S Sugar)
+	(exists (?C)
+		(and
+			(instance ?C Causing)
+			(agent ?C ?S)
 			(patient ?C Obesity))))
+
+(exists (?S)
+  (and
+    (instance ?S Sugar)
+    (instance ?C Causing)
+    (instance ?O Obesity)
+    (agent ?C ?S)
+    (patient ?C ?O)))
+
 
 ; Some lipids are healthy
 
 (subclass Lipid Nutrient)
 (documentation Lipid EnglishLanguage "&%Lipid are a broad group of organic compounds which include fats, waxes, sterols, fat-soluble vitamins (such as vitamins A, D, E and K), monoglycerides, diglycerides, phospholipids, and others.")
-(termFormat Lipid "lipid")
+(termFormat EnglishLanguage Lipid "lipid")
 
 (exists (?X)
 	(and
 		(instance ?X Lipid)
 		(attribute ?X Healthy)))
+
+; Some lipids are unhealthy
+(exists (?X)
+	(and
+		(instance ?X Lipid)
+		(attribute ?X Unhealthy)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Calcium strengthens bones
+(subclass PureSubstance AutonomousAgent)
+(exists (?C ?I)
+    (and
+    (instance ?C Calcium)
+    (instance ?I Increasing)
+    (instance ?B Bone)
+    (agent ?I ?C)
+    (patient ?I ?B)))
+
+; Logic behind: If someone is eating food containing calcium then its bones strengthen
+(=>
+    (and
+        (instance ?H Human)
+        (instance ?E Eating)
+        (agent ?E ?H)
+        (instance ?F Food)
+        (resource ?E ?F)
+        (instance ?C Calcium)
+        (part ?F ?C))
+    (exists
+        (?I ?B)
+        (and
+            (instance ?I Increasing)
+            (causes ?E ?I)
+            (instance ?B Bone)
+            (part ?B ?H)
+            (patient ?I ?B))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Proteins make muscles
+
+(subclass Nutrient AutonomousAgent)
+(exists (?P ?M)
+    (and
+        (instance ?P Protein)
+        (instance ?M Making)
+        (agent ?M ?P)
+        (patient ?M Muscle)))
+
+; A more expressive form
+
+(=>
+    (and
+        (instance ?H Human)
+        (instance ?E Eating)
+        (agent ?E ?H)
+        (instance ?F Food)
+        (resource ?E ?F)
+        (instance ?P Protein)
+        (part ?F ?P))
+    (exists
+        (?M ?M2)
+        (and
+            (instance ?M Making)
+            (causes ?E ?M)
+            (instance ?M2 Muscle)
+            (part ?M2 ?H)
+            (patient ?M ?M2))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Broccoli contains fiber and vitamins
+
+(subclass BiologicalFiber BiologicallyActiveSubstance)
+(documentation BiologicalFiber EnglishLanguage "&%BiologicalFiber is a type of &%BiologicallyActiveSubstance that the body can’t digest.")
+(termFormat EnglishLanguage BiologicalFiber "biological fiber")
+
+(=>
+    (instance ?B Broccoli)
+    (exists
+        (?V ?F)
+        (and
+            (instance ?V Vitamin)
+            (instance ?F BiologicalFiber)
+            (part ?F ?B)
+            (part ?V ?B))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Salmon contains Omega-3
+
+(subclass FattyAcid Lipid)
+(documentation FattyAcid EnglishLanguage "&%FattyAcid are the building blocks of the fat in our bodies and in the food we eat.")
+(termFormat EnglishLanguage FattyAcid "fatty acid")
+
+(subclass Omega3 FattyAcid)
+(documentation Omega3 EnglishLanguage "&%Omega3 is a fatty acid.")
+(termFormat EnglishLanguage Omega3 "omega-3")
+
+(=>
+    (instance ?S Salmon)
+    (exists (?O)
+        (and
+            (instance ?O Omega3)
+            (part ?O ?S))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Eating eggs raises cholesterol
+
+(=>
+    (and
+        (instance ?H Human)
+        (instance ?E Eating)
+        (agent ?E ?H)
+        (instance ?EGG Egg)
+        (resource ?E ?EGG))
+    (exists
+        (?I ?C)
+        (and
+            (instance ?I Increasing)
+            (causes ?E ?I)
+            (instance ?C Cholesterol)
+            (part ?C ?H)
+            (patient ?I ?C))))
+
+(not
+   (exists (?E ?I ?C)
+     (and
+       (instance ?E Egg)
+       (instance ?I Increasing)
+       (instance ?C Cholesterol)
+       (agent ?I ?E)
+       (patient ?I ?C))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Exists salt that is healthy
+
+(exists (?X)
+	(and
+		(instance ?X SodiumChloride)
+		(attribute ?X Healthy)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
